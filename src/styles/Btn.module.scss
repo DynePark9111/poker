@@ -1,0 +1,38 @@
+@use "./__global" as *;
+
+@mixin shadow() {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0.125rem;
+}
+
+$skew: 6deg;
+
+.Btn {
+  cursor: pointer;
+  padding: 0;
+  border-radius: $bd_radius;
+  background-color: $bg_btn;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 1.25rem;
+  min-height: 1.25rem;
+  border: 0.125rem solid $black;
+  transform: skew(-($skew));
+  position: relative;
+  & > * {
+    transform: skew($skew);
+  }
+  .shadowTop {
+    @include shadow;
+    background-color: #ffffff22;
+    top: 0;
+  }
+  .shadowBottom {
+    @include shadow;
+    bottom: 0;
+    background-color: #00000044;
+  }
+}

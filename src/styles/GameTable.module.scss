@@ -1,0 +1,28 @@
+@use "./__global" as *;
+
+.GameTable {
+  position: fixed;
+  width: 80vw;
+  height: 80vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #008000aa;
+  .MainCards {
+    display: flex;
+    justify-content: space-around;
+    gap: 0.25rem;
+    width: 100%;
+    //fix later
+    position: absolute;
+    left: 0;
+    bottom: 1rem;
+    .Card {
+      border-radius: $bd_radius;
+      background-color: $white;
+      width: 8rem;
+      aspect-ratio: 2.5 / 3.5;
+      padding: 1rem;
+    }
+  }
+}
