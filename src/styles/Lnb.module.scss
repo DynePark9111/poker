@@ -1,0 +1,35 @@
+@use "./__global" as *;
+
+.Lnb {
+  z-index: 9;
+  position: fixed;
+  top: -0.25rem;
+  left: -0.5rem;
+  right: -0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  .btn {
+    color: $white;
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 0.5rem 2rem;
+  }
+  .title {
+    font-size: 3rem;
+    color: $white;
+  }
+}
+@media screen and (max-width: $max_width3) {
+  .Lnb {
+    .btn {
+      font-size: 1.5rem;
+      padding: 0.25rem 1rem;
+    }
+    .title {
+      font-size: 2rem;
+      color: $white;
+    }
+  }
+}

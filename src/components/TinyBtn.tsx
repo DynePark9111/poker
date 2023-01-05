@@ -13,7 +13,7 @@ type TinyBtnProps = {
 export default function TinyBtn({ text, link, icon, disabled }: TinyBtnProps) {
   return (
     <Link to={link}>
-      <div className={styles.TinyBtn} id={disabled ? styles.disabled : ""}>
+      <div className={styles.TinyBtn} id={disabled ? "disabled" : ""}>
         <div className={styles.icon}>
           <img src={icon} />
         </div>

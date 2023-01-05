@@ -3,7 +3,7 @@ import chip from "../assets/chip.svg";
 
 type BackgroundProps = {
   icon?: string;
-  background?: string;
+  color?: string;
   gradient?: string;
 };
 
@@ -12,16 +12,16 @@ const defaultGradient = `linear-gradient(
   rgba(0, 14, 33, 0.3) 50%,
   rgba(154, 186, 54, 0.3)
 )`;
-// const defaultBackground = `#000e21`;
-const defaultBackground = `#264482`;
-// const defaultBackground = `red`;
-// const defaultBackground = `blue`;
-// const defaultBackground = `green`;
-// const defaultBackground = `gold`;
+const defaultColor = `#000e21`;
+// const defaultColor = `#264482`;
+// const defaultColor = `red`;
+// const defaultColor = `blue`;
+// const defaultColor = `green`;
+// const defaultColor = `gold`;
 
 export default function Background({
   icon = chip,
-  background = defaultBackground,
+  color = defaultColor,
   gradient = defaultGradient,
 }: BackgroundProps) {
   return (
@@ -29,17 +29,17 @@ export default function Background({
       <div
         className={styles.bg}
         style={{
-          backgroundColor: defaultBackground,
+          backgroundColor: color,
         }}
       />
       <div
         className={styles.icon}
         style={{
           backgroundImage: `url(${icon})`,
-          backgroundColor: defaultBackground,
+          backgroundColor: color,
         }}
       />
-      <div className={styles.bgColor} style={{ background: defaultGradient }} />
+      <div className={styles.bgColor} style={{ background: gradient }} />
     </div>
   );
 }

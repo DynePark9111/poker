@@ -25,9 +25,6 @@
     transform: skew(-2deg);
     aspect-ratio: 2/1;
 
-    &#disabled {
-      filter: grayscale(10);
-    }
     .about {
       cursor: pointer;
       top: -0.5rem;

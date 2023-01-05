@@ -26,3 +26,9 @@ li {
 li {
   list-style: none;
 }
+
+// global
+
+#disabled {
+  filter: grayscale(10);
+}

@@ -102,7 +102,7 @@ function Event({
   available = true,
 }: EventProps) {
   return (
-    <div className={styles.Event} id={available ? "" : styles.disabled}>
+    <div className={styles.Event} id={available ? "" : "disabled"}>
       <div className={styles.about}>
         <img src={about} alt={about} />
       </div>
