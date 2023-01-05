@@ -1,22 +1,19 @@
 import { useState } from "react";
 import styles from "../styles/GameTable.module.scss";
 
-export default function GameTable() {
+type GameTableProps = {
+  multi: number;
+};
+
+export default function GameTable({ multi }: GameTableProps) {
   return (
     <div className={styles.GameTable}>
-      <h1>GameTable</h1>
+      <div className={styles.MultiTable}>
+        {[...Array(multi).keys()].map((_, i) => {
+          return <div className={styles.smallTable} key={i}></div>;
+        })}
+      </div>
       <MainCards />
-    </div>
-  );
-}
-
-function SubCards() {
-  const result = ["AS", "2S", "3S", "JS", "KH"];
-  return (
-    <div className={styles.SubCards}>
-      {result.map((card) => {
-        return <Card key={card} card={card} />;
-      })}
     </div>
   );
 }

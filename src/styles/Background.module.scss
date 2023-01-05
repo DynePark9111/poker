@@ -14,9 +14,15 @@
   z-index: -9999;
   $duration_bg: 120s;
   $position: 2400px;
+  .bg {
+    @include overlay;
+    opacity: 90%;
+    z-index: -9998;
+  }
   .icon {
     @include overlay;
     z-index: -9999;
+
     -webkit-animation: $duration_bg scroll infinite linear;
     -moz-animation: $duration_bg scroll infinite linear;
     -o-animation: $duration_bg scroll infinite linear;

@@ -15,7 +15,7 @@
       top: 0;
       left: -1rem;
       width: 2rem;
-      height: 2rem;
+      aspect-ratio: 1/1;
     }
     .amount {
       color: $white;
@@ -24,5 +24,12 @@
       background-color: $black;
       text-align: center;
     }
+  }
+}
+
+@media screen and (max-width: $max_width3) {
+  .Wallet {
+    flex-direction: column-reverse;
+    gap: 0.5rem;
   }
 }

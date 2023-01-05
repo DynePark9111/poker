@@ -19,7 +19,7 @@ export default function Wallet() {
 function WalletItem({ image, amount }: WalletItemProps) {
   return (
     <div className={styles.WalletItem}>
-      <img src={image} />
+      <img src={image} alt={image} />
       <div className={styles.amount}>{amount.toLocaleString()}</div>
     </div>
   );

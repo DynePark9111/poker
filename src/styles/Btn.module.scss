@@ -4,12 +4,13 @@
   position: absolute;
   left: 0;
   right: 0;
-  height: 0.125rem;
+  height: 0.25rem;
 }
 
 $skew: 6deg;
 
 .Btn {
+  box-shadow: 1px 2px 2px #00000088;
   cursor: pointer;
   padding: 0;
   border-radius: $bd_radius;

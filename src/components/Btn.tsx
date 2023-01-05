@@ -3,11 +3,14 @@ import styles from "../styles/Btn.module.scss";
 
 type BtnProps = {
   children: ReactNode;
+  color?: string;
 };
 
-export default function Btn({ children }: BtnProps) {
+const defaultColor = "#495479";
+
+export default function Btn({ children, color = defaultColor }: BtnProps) {
   return (
-    <button className={styles.Btn}>
+    <button className={styles.Btn} style={{ background: color }}>
       <div className={styles.shadowTop} />
       <div className={styles.shadowBottom} />
       {children}
