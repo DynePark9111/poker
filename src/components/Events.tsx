@@ -2,6 +2,7 @@ import styles from "../styles/Events.module.scss";
 import about from "../assets/cards/info.webp";
 import robot from "../assets/cards/robot.webp";
 import duel from "../assets/cards/duel.webp";
+import { useNavigate } from "react-router-dom";
 // import star from "../assets/cards/star.webp";
 // import trophy from "../assets/cards/trophy.webp";
 // import zone from "../assets/cards/zone.webp";
@@ -27,7 +28,7 @@ export default function Events() {
         subtitle="subtitle"
         time="1h 2m"
         info="TODO"
-        link="link"
+        link="poker"
         image="image"
         color="red"
         available={false}
@@ -38,7 +39,7 @@ export default function Events() {
         subtitle="subtitle"
         time="1h 2m"
         info="TODO"
-        link="link"
+        link="poker"
         image="image"
         color="red"
         available={false}
@@ -49,7 +50,7 @@ export default function Events() {
         subtitle="I CHALLENGE YOU TO A DULE"
         time="01H 02M"
         info="TODO"
-        link="link"
+        link="poker"
         image="https://pbs.twimg.com/media/FThIj9QWAAAFjE7.jpg"
         color="#A60528"
       />
@@ -59,7 +60,7 @@ export default function Events() {
         subtitle="subtitle"
         time="1h 2m"
         info="TODO"
-        link="link"
+        link="poker"
         image="image"
         color="red"
         available={false}
@@ -70,7 +71,7 @@ export default function Events() {
         subtitle="subtitle"
         time="1h 2m"
         info="TODO"
-        link="link"
+        link="poker"
         image="image"
         color="red"
         available={false}
@@ -101,16 +102,18 @@ function Event({
   color = "purple",
   available = true,
 }: EventProps) {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.Event} id={available ? "" : "disabled"}>
-      <div className={styles.about}>
+      <div className={styles.infoIcon}>
         <img src={about} alt={about} />
       </div>
-      <div className={styles.wrapper}>
-        <div className={styles.label}>
+      <div className={styles.wrapper} onClick={() => navigate(link)}>
+        <div className={styles.time}>
           New event: {available ? time : disabled.time}
         </div>
-        <div className={styles.top} style={{ backgroundColor: color }}>
+        <div className={styles.info} style={{ backgroundColor: color }}>
           <div className={styles.icon}>
             <img
               src={available ? icon : disabled.icon}

@@ -13,7 +13,6 @@ export default function HomePage() {
       <Menu />
       <Profile />
       <Wallet />
-      {/* <PlayBtn /> */}
       <Aside />
       <Events />
     </div>

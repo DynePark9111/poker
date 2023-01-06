@@ -4,7 +4,6 @@ import styles from "../styles/MyPage.module.scss";
 import profileImage from "../assets/profile.webp";
 import Btn from "../components/Btn";
 import rank from "../assets/cards/rank.webp";
-
 import trophy from "../assets/cards/trophy.webp";
 import duel from "../assets/cards/duel.webp";
 import star from "../assets/cards/star.webp";
@@ -14,12 +13,7 @@ import robot from "../assets/cards/robot.webp";
 import robot2 from "../assets/cards/robot2.webp";
 import robot3 from "../assets/cards/robot3.webp";
 import { FaCog } from "react-icons/fa";
-
-type ListItemProps = {
-  label: string;
-  icon: string;
-  count: number;
-};
+import ListItem from "../components/ListItem";
 
 export default function MyPage() {
   let user = {
@@ -91,15 +85,5 @@ function MyPageBottom() {
       <ListItem label="ROBOT B DEFEATED" icon={robot2} count={12312} />
       <ListItem label="ROBOT C DEFEATED" icon={robot3} count={0} />
     </ul>
-  );
-}
-
-function ListItem({ label, icon, count }: ListItemProps) {
-  return (
-    <li className={styles.ListItem}>
-      <div className={styles.label}>{label}</div>
-      <img src={icon} className={styles.icon} />
-      <div className={styles.text}>{count.toLocaleString()}</div>
-    </li>
   );
 }

@@ -78,40 +78,6 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 2rem 4rem;
-      li {
-        $skew: 6deg;
-        position: relative;
-        border-radius: $bd_radius;
-        background-color: #00000066;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-width: 8rem;
-        flex: 1fr;
-        height: 2.5rem;
-        transform: skew(-($skew));
-        & > * {
-          transform: skew($skew);
-        }
-        .label {
-          position: absolute;
-          top: -1rem;
-          font-size: 0.75rem;
-          color: #a8a9ab;
-          white-space: normal;
-        }
-        .icon {
-          position: absolute;
-          top: 0rem;
-          left: -1.25rem;
-          font-size: 1.25rem;
-          height: 2.5rem;
-        }
-        .text {
-          color: $white;
-          font: 1rem;
-        }
-      }
     }
   }
 }
