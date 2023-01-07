@@ -14,12 +14,9 @@ export default function PokerPage() {
   //res.data
   const [multi, setMulti] = useState(1);
   const [myDeck, setMyDeck] = useState<string[]>(INITIAL_DECK);
-  const [toChange, setToChange] = useState<string[]>([]);
+  const [toHold, setToHold] = useState<string[]>([]);
   const [result, setResult] = useState<RANK_TYPE>("0");
   const [status, setStatus] = useState(GAME_STATUS.START);
-
-  // console.log("status");
-  // console.log(status);
 
   function playBtnOnclick() {
     if (status === GAME_STATUS.LOADING) return console.log("LOADING");
@@ -32,6 +29,7 @@ export default function PokerPage() {
     if (status === GAME_STATUS.START) return "START";
     if (status === GAME_STATUS.DEAL) return "DEAL";
     if (status === GAME_STATUS.END) return "CLAIM";
+    if (status === GAME_STATUS.ERROR) return "ERROR";
     return "";
   }
 
@@ -51,10 +49,12 @@ export default function PokerPage() {
 
   async function changeCards() {
     setStatus(GAME_STATUS.LOADING);
+    let notToHold = myDeck.filter((x) => !new Set([...toHold]).has(x));
+
     let req = {
       myCards: myDeck,
-      toChange: toChange,
       count: multi,
+      toChange: notToHold,
     };
     axios
       .post(`${URL}/game/change`, req)
@@ -73,8 +73,9 @@ export default function PokerPage() {
     setStatus(GAME_STATUS.START);
     setMyDeck(INITIAL_DECK);
     setResult("0");
-    setToChange([]);
+    setToHold([]);
   }
+  console.log(myDeck);
 
   return (
     <div className={styles.PokerPage}>
@@ -84,12 +85,12 @@ export default function PokerPage() {
       <PokerTable
         multi={multi}
         myDeck={myDeck}
-        toChange={toChange}
+        toHold={toHold}
         result={result}
-        setToChange={setToChange}
+        setToHold={setToHold}
         status={status}
       />
-      <Total result={result} />
+      <Total result={result} isClaim={status === GAME_STATUS.END} />
       <PlayBtn onClick={playBtnOnclick} status={playBtnStatus()} />
     </div>
   );

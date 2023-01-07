@@ -5,16 +5,16 @@ import { GAME_STATUS, RANK, RANK_TYPE } from "../types/types";
 type PokerTableProps = {
   multi: number;
   myDeck: string[];
-  toChange: string[];
-  setToChange: any;
+  toHold: string[];
+  setToHold: any;
   result: RANK_TYPE;
   status: number;
 };
 
 type MainTableProps = {
   myDeck: string[];
-  toChange: string[];
-  setToChange: any;
+  toHold: string[];
+  setToHold: any;
   result: RANK_TYPE;
   status: number;
 };
@@ -22,8 +22,8 @@ type MainTableProps = {
 export default function PokerTable({
   multi,
   myDeck,
-  toChange,
-  setToChange,
+  toHold,
+  setToHold,
   result,
   status,
 }: PokerTableProps) {
@@ -37,8 +37,8 @@ export default function PokerTable({
       <MainTable
         result={result}
         myDeck={myDeck}
-        toChange={toChange}
-        setToChange={setToChange}
+        toHold={toHold}
+        setToHold={setToHold}
         status={status}
       />
     </div>
@@ -47,16 +47,16 @@ export default function PokerTable({
 
 function MainTable({
   myDeck,
-  toChange,
-  setToChange,
+  toHold,
+  setToHold,
   result,
   status,
 }: MainTableProps) {
   function chooseCard(a: string[], b: string) {
     if (!a.includes(b)) {
-      setToChange([...a, b]);
+      setToHold([...a, b]);
     } else {
-      setToChange([...a].filter((x) => x !== b));
+      setToHold([...a].filter((x) => x !== b));
     }
   }
   return (
@@ -69,12 +69,13 @@ function MainTable({
       )}
 
       {myDeck.map((card) => {
+        console.log(card);
         return (
           <Card
             key={card}
             card={card}
-            onClick={() => chooseCard(toChange, card)}
-            hold={toChange.includes(card) ? true : false}
+            onClick={() => chooseCard(toHold, card)}
+            hold={toHold.includes(card) ? true : false}
             status={status}
           />
         );

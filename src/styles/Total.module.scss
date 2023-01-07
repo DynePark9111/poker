@@ -4,4 +4,30 @@
   position: fixed;
   bottom: 1rem;
   left: 2rem;
+  display: flex;
+  gap: 2rem;
+  .result {
+    position: fixed;
+    top: 40%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background-color: #00000044;
+    width: 100%;
+    height: 10vw;
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    pointer-events: none;
+    transition: opacity 300ms;
+    &#show {
+      opacity: 1;
+    }
+    &#hide {
+      opacity: 0;
+    }
+  }
 }
