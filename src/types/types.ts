@@ -28,6 +28,21 @@ export const PAY_TABLE = {
   "11": 0,
 } as const;
 
+export const COLOR_TABLE = {
+  "0": "#ffffff00",
+  "1": "#000000",
+  "2": "#442F8A",
+  "3": "#EE1745",
+  "4": "#02cd71",
+  "5": "#DE2DFC",
+  "6": "#01BBFF",
+  "7": "#fe9613",
+  "8": "#8489E3",
+  "9": "#E75507",
+  "10": "#A8A9AB",
+  "11": "#A8A9AB",
+} as const;
+
 export type RANK_TYPE = keyof typeof RANK;
 export type PAY_TABLE_TYPE = keyof typeof PAY_TABLE;
 export type GAME_STATUS_TYPE = keyof typeof GAME_STATUS;

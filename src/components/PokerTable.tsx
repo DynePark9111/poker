@@ -1,6 +1,6 @@
 import styles from "../styles/PokerTable.module.scss";
 import Card from "./Card";
-import { GAME_STATUS, RANK, RANK_TYPE } from "../types/types";
+import { COLOR_TABLE, GAME_STATUS, PAY_TABLE, RANK } from "../types/types";
 import { mainCardsType } from "../pages/PokerPage";
 
 type PokerTableProps = {
@@ -9,6 +9,11 @@ type PokerTableProps = {
   setToHold: any;
   status: number;
   multiDecks: mainCardsType[];
+};
+
+type MultiTableProps = {
+  multiDecks: mainCardsType[];
+  status: number;
 };
 
 type MainTableProps = {
@@ -25,31 +30,32 @@ export default function PokerTable({
   multiDecks,
   mainCards,
 }: PokerTableProps) {
-  console.log(multiDecks);
   return (
     <div className={styles.PokerTable}>
-      <div className={styles.MultiTable}>
-        {multiDecks.map((multiDeck: mainCardsType, i: number) => {
-          return (
-            <div className={styles.smallTable}>
-              {status === GAME_STATUS.END && (
-                <div className={styles.result}>
-                  <div>{RANK[multiDeck.rank]}</div>
-                </div>
-              )}
-              {multiDeck.cards.map((card: string) => {
-                return <Card key={card} card={card} status={status} />;
-              })}
-            </div>
-          );
-        })}
-      </div>
+      <MultiTable multiDecks={multiDecks} status={status} />
       <MainTable
         mainCards={mainCards}
         toHold={toHold}
         setToHold={setToHold}
         status={status}
       />
+    </div>
+  );
+}
+
+function MultiTable({ multiDecks, status }: MultiTableProps) {
+  return (
+    <div className={styles.MultiTable}>
+      {multiDecks.map((multiDeck: mainCardsType, i: number) => {
+        return (
+          <div className={styles.smallTable}>
+            <Result status={status} cards={multiDeck} />
+            {multiDeck.cards.map((card: string) => {
+              return <Card key={card} card={card} status={status} />;
+            })}
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -64,11 +70,7 @@ function MainTable({ mainCards, toHold, setToHold, status }: MainTableProps) {
   }
   return (
     <div className={styles.MainTable}>
-      {status === GAME_STATUS.END && (
-        <div className={styles.result}>
-          <div>{RANK[mainCards.rank]}</div>
-        </div>
-      )}
+      <Result status={status} cards={mainCards} />
       {mainCards.cards.map((card) => {
         return (
           <Card
@@ -80,6 +82,25 @@ function MainTable({ mainCards, toHold, setToHold, status }: MainTableProps) {
           />
         );
       })}
+    </div>
+  );
+}
+
+type ResultProps = {
+  status: number;
+  cards: mainCardsType;
+};
+
+function Result({ status, cards }: ResultProps) {
+  let isEnd = status === GAME_STATUS.END;
+  // TODO change color
+  return (
+    <div
+      className={styles.Result}
+      id={isEnd ? styles.show : ""}
+      style={{ backgroundColor: COLOR_TABLE[cards.rank] }}
+    >
+      {`${RANK[cards.rank]} (${PAY_TABLE[cards.rank]})`}
     </div>
   );
 }

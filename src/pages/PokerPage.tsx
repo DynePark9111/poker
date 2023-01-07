@@ -21,9 +21,14 @@ const INITIAL_MAIN_CARDS: mainCardsType = {
 };
 
 export default function PokerPage() {
+  //res game/new
   const [mainCards, setMainCards] = useState<mainCardsType>(INITIAL_MAIN_CARDS);
-  const [multiDecks, setMultiDecks] = useState([INITIAL_MAIN_CARDS]);
 
+  //res game/change
+  const [multiDecks, setMultiDecks] = useState([INITIAL_MAIN_CARDS]);
+  const [total, setTotal] = useState(0);
+
+  //req game/change = TODO? change to single state?
   const [multi, setMulti] = useState(1);
   const [toHold, setToHold] = useState<string[]>([]);
   const [status, setStatus] = useState(GAME_STATUS.START);
@@ -89,6 +94,7 @@ export default function PokerPage() {
       .then((res) => {
         setMainCards(res.data.results[0]);
         setMultiDecks(res.data.results.slice(1));
+        setTotal(res.data.total);
         setStatus(GAME_STATUS.END);
       })
       .catch((err) => {
@@ -115,7 +121,11 @@ export default function PokerPage() {
         setToHold={setToHold}
         status={status}
       />
-      <Total result={mainCards.rank} isClaim={status === GAME_STATUS.END} />
+      <Total
+        isClaim={status === GAME_STATUS.END}
+        total={status === GAME_STATUS.END ? total : 0}
+        spend={status === GAME_STATUS.DEAL ? multiDecks.length + 1 : 0}
+      />
       <PlayBtn
         multi={multi}
         status={gameStatus()}

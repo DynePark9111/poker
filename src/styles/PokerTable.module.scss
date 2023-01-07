@@ -50,18 +50,19 @@
     padding: 0.5rem 1rem;
     position: relative;
   }
-  .result {
-    background-color: yellow;
-    width: 50%;
+  .Result {
+    color: $white;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     z-index: 1;
     position: absolute;
-    top: 50%;
-    animation: appear 300ms 200ms forwards;
     opacity: 0;
+    pointer-events: none;
+    &#show {
+      animation: appear 300ms 200ms forwards;
+    }
   }
 }
 
