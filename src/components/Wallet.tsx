@@ -1,6 +1,6 @@
 import styles from "../styles/Wallet.module.scss";
-import greenGem from "../assets/gem_green.png";
-import purpleGem from "../assets/gem_purple.png";
+import greenGem from "../assets/icons/gem_green.webp";
+import purpleGem from "../assets/icons/gem_purple.webp";
 
 type WalletItemProps = {
   image: string;

@@ -1,11 +1,11 @@
 import styles from "../styles/Aside.module.scss";
 import TinyBtn from "./TinyBtn";
-import store from "../assets/cards/gem4.webp";
-import rank from "../assets/cards/rank.webp";
-import news from "../assets/cards/news.webp";
-import friend from "../assets/cards/people.webp";
-import board from "../assets/cards/board.webp";
-import report from "../assets/cards/robot2.webp";
+import store from "../assets/icons/gems.webp";
+import rank from "../assets/icons/rank.webp";
+import news from "../assets/icons/news.webp";
+import friend from "../assets/icons/people.webp";
+import board from "../assets/icons/board.webp";
+import report from "../assets/icons/robot2.webp";
 
 export default function Aside() {
   return (

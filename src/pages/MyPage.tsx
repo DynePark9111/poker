@@ -3,15 +3,15 @@ import Lnb from "../components/Lnb";
 import styles from "../styles/MyPage.module.scss";
 import profileImage from "../assets/profile.webp";
 import Btn from "../components/Btn";
-import rank from "../assets/cards/rank.webp";
-import trophy from "../assets/cards/trophy.webp";
-import duel from "../assets/cards/duel.webp";
-import star from "../assets/cards/star.webp";
-import gem4 from "../assets/cards/gem4.webp";
-import zone from "../assets/cards/zone.webp";
-import robot from "../assets/cards/robot.webp";
-import robot2 from "../assets/cards/robot2.webp";
-import robot3 from "../assets/cards/robot3.webp";
+import rank from "../assets/icons/rank.webp";
+import trophy from "../assets/icons/trophy.webp";
+import duel from "../assets/icons/duel.webp";
+import star from "../assets/icons/star.webp";
+import gems from "../assets/icons/gems.webp";
+import zone from "../assets/icons/zone.webp";
+import robot from "../assets/icons/robot.webp";
+import robot2 from "../assets/icons/robot2.webp";
+import robot3 from "../assets/icons/robot3.webp";
 import { FaCog } from "react-icons/fa";
 import ListItem from "../components/ListItem";
 
@@ -78,7 +78,7 @@ function MyPageBottom() {
       <ListItem label="HIGHEST TROPIES" icon={trophy} count={99} />
       <ListItem label="HIGHEST RANKS" icon={rank} count={1} />
       <ListItem label="STARS COLLECTED" icon={star} count={1213} />
-      <ListItem label="GEMS COLLECTED" icon={gem4} count={112312} />
+      <ListItem label="GEMS COLLECTED" icon={gems} count={112312} />
       <ListItem label="GAMES PLAYED" icon={duel} count={121233} />
       <ListItem label="ZONE PROTECTED" icon={zone} count={112323} />
       <ListItem label="ROBOT A DEFEATED" icon={robot} count={98346} />

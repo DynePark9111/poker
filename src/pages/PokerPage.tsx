@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Background from "../components/Background";
 import PokerTable from "../components/PokerTable";
 import Menu from "../components/Menu";
@@ -10,22 +10,49 @@ import { RANK_TYPE, GAME_STATUS } from "../types/types";
 import { INITIAL_DECK, URL } from "../data/data";
 import Total from "../components/Total";
 
+export type mainCardsType = {
+  cards: string[];
+  rank: RANK_TYPE;
+};
+
+const INITIAL_MAIN_CARDS: mainCardsType = {
+  cards: INITIAL_DECK,
+  rank: "0" as RANK_TYPE,
+};
+
 export default function PokerPage() {
-  //res.data
+  const [mainCards, setMainCards] = useState<mainCardsType>(INITIAL_MAIN_CARDS);
+  const [multiDecks, setMultiDecks] = useState([INITIAL_MAIN_CARDS]);
+
   const [multi, setMulti] = useState(1);
-  const [myDeck, setMyDeck] = useState<string[]>(INITIAL_DECK);
   const [toHold, setToHold] = useState<string[]>([]);
-  const [result, setResult] = useState<RANK_TYPE>("0");
   const [status, setStatus] = useState(GAME_STATUS.START);
 
-  function playBtnOnclick() {
+  useEffect(() => {
+    function duplicateArray(length: number, fillWith: any) {
+      return Array(length).fill(fillWith);
+    }
+    let duplicated = duplicateArray(multi, INITIAL_MAIN_CARDS);
+    setMultiDecks(duplicated);
+  }, [multi]);
+
+  function playOnClick() {
     if (status === GAME_STATUS.LOADING) return console.log("LOADING");
     if (status === GAME_STATUS.START) return startGame();
     if (status === GAME_STATUS.DEAL) return changeCards();
     if (status === GAME_STATUS.END) return endGame();
   }
 
-  function playBtnStatus() {
+  function multiOnClick() {
+    if (status === GAME_STATUS.START) {
+      if (multi < 32) return setMulti((prev: number) => prev * 2);
+      if (multi >= 32) return setMulti(1);
+    } else {
+      console.log("can't change layout now");
+    }
+  }
+
+  function gameStatus() {
     if (status === GAME_STATUS.START) return "START";
     if (status === GAME_STATUS.DEAL) return "DEAL";
     if (status === GAME_STATUS.END) return "CLAIM";
@@ -38,8 +65,9 @@ export default function PokerPage() {
     axios
       .get(`${URL}/game/new`)
       .then((res) => {
+        setMainCards(res.data);
         setStatus(GAME_STATUS.DEAL);
-        setMyDeck(res.data.cards);
+        setMultiDecks(Array(multi).fill(res.data));
       })
       .catch((err) => {
         console.log(err);
@@ -49,18 +77,18 @@ export default function PokerPage() {
 
   async function changeCards() {
     setStatus(GAME_STATUS.LOADING);
-    let notToHold = myDeck.filter((x) => !new Set([...toHold]).has(x));
+    let notToHold = mainCards.cards.filter((x) => !new Set([...toHold]).has(x));
 
     let req = {
-      myCards: myDeck,
-      count: multi,
+      myCards: mainCards.cards,
+      count: multi + 1,
       toChange: notToHold,
     };
     axios
       .post(`${URL}/game/change`, req)
       .then((res) => {
-        setMyDeck(res.data.results[0].cards);
-        setResult(res.data.results[0].rank);
+        setMainCards(res.data.results[0]);
+        setMultiDecks(res.data.results.slice(1));
         setStatus(GAME_STATUS.END);
       })
       .catch((err) => {
@@ -71,27 +99,29 @@ export default function PokerPage() {
 
   async function endGame() {
     setStatus(GAME_STATUS.START);
-    setMyDeck(INITIAL_DECK);
-    setResult("0");
+    setMainCards(INITIAL_MAIN_CARDS);
     setToHold([]);
   }
-  console.log(myDeck);
 
   return (
     <div className={styles.PokerPage}>
-      <Background />
+      <Background color="#005f00" />
       <Menu />
       <Wallet />
       <PokerTable
-        multi={multi}
-        myDeck={myDeck}
+        multiDecks={multiDecks}
+        mainCards={mainCards}
         toHold={toHold}
-        result={result}
         setToHold={setToHold}
         status={status}
       />
-      <Total result={result} isClaim={status === GAME_STATUS.END} />
-      <PlayBtn onClick={playBtnOnclick} status={playBtnStatus()} />
+      <Total result={mainCards.rank} isClaim={status === GAME_STATUS.END} />
+      <PlayBtn
+        multi={multi}
+        status={gameStatus()}
+        playOnClick={playOnClick}
+        multiOnClick={multiOnClick}
+      />
     </div>
   );
 }

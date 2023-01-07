@@ -12,7 +12,6 @@ export default function Card({ card, onClick, hold, status }: CardProps) {
   let iconCount = createEmptyArray(card[0]);
   let isStart = status === GAME_STATUS.START;
   let isEnd = status === GAME_STATUS.END;
-
   return (
     <div
       className={`${styles.Card} ${isEnd ? styles.noClick : ""}`}

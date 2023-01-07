@@ -1,11 +1,11 @@
 import styles from "../styles/Events.module.scss";
-import about from "../assets/cards/info.webp";
-import robot from "../assets/cards/robot.webp";
-import duel from "../assets/cards/duel.webp";
+import about from "../assets/icons/info.webp";
+import robot from "../assets/icons/robot.webp";
+import duel from "../assets/icons/duel.webp";
 import { useNavigate } from "react-router-dom";
-// import star from "../assets/cards/star.webp";
-// import trophy from "../assets/cards/trophy.webp";
-// import zone from "../assets/cards/zone.webp";
+// import star from "../assets/icons/star.webp";
+// import trophy from "../assets/icons/trophy.webp";
+// import zone from "../assets/icons/zone.webp";
 
 type EventProps = {
   icon: string;

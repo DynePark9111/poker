@@ -60,7 +60,7 @@
     transform: rotateY(-180deg);
     width: 100%;
     height: 100%;
-    padding: clamp(1rem, 2rem, 4rem);
+    padding: 2rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(8, 1fr);
@@ -82,7 +82,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      font-size: clamp(1rem, 3rem, 4rem);
+      font-size: 3rem;
       &.top {
         top: 0.25rem;
         left: 0.25rem;
@@ -156,15 +156,15 @@
 
 //data-value
 [data-value="J"] .icon {
-  background-image: url("../assets/cards/jack-red.svg");
+  background-image: url("../assets/cards/jack.svg");
 }
 
 [data-value="Q"] .icon {
-  background-image: url("../assets/cards/queen-red.svg");
+  background-image: url("../assets/cards/queen.svg");
 }
 
 [data-value="K"] .icon {
-  background-image: url("../assets/cards/king-red.svg");
+  background-image: url("../assets/cards/king.svg");
 }
 
 [data-value="A"] .icon,

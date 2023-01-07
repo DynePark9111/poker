@@ -2,15 +2,25 @@ import styles from "../styles/PlayBtn.module.scss";
 import Btn from "./Btn";
 
 type PlayBtnProps = {
-  onClick: () => void;
+  playOnClick: () => void;
   status: string;
+  multi: number;
+  multiOnClick: any;
 };
 
-export default function PlayBtn({ onClick, status }: PlayBtnProps) {
+export default function PlayBtn({
+  playOnClick,
+  status,
+  multi,
+  multiOnClick,
+}: PlayBtnProps) {
   return (
-    <div className={styles.PlayBtn} onClick={onClick}>
-      <Btn color="#eec306">
-        <div className={styles.wrapper}>{status}</div>
+    <div className={styles.PlayBtn}>
+      <Btn color="#eec306" onClick={multiOnClick}>
+        <div className={styles.multi}>x{multi}</div>
+      </Btn>
+      <Btn color="#eec306" onClick={playOnClick}>
+        <div className={styles.play}>{status}</div>
       </Btn>
     </div>
   );

@@ -6,18 +6,21 @@
   right: 2rem;
   display: flex;
   gap: 0.5rem;
+  .play,
   .multi {
-    padding-top: 1rem;
-  }
-  .wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: $white;
     font-weight: bold;
     font-size: calc(0.75rem + 4vmin);
     width: 20vmin;
     min-width: 6rem;
     aspect-ratio: 2.5 /1;
+  }
+  .multi {
+    min-width: 3rem;
+    width: 10vmin;
+    font-size: calc(0.75rem + 3vmin);
   }
 }

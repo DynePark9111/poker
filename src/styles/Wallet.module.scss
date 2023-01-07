@@ -3,11 +3,10 @@
 .Wallet {
   position: fixed;
   top: 0.5rem;
-  right: 5rem;
+  right: 8rem;
   z-index: 2;
   display: flex;
   gap: 2rem;
-  z-index: 9;
   .WalletItem {
     position: relative;
     img {

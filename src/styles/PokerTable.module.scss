@@ -8,40 +8,60 @@
   bottom: 0;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1rem;
-  background-color: #005f00aa;
   padding: 1rem 1rem 5rem 1rem;
   .MultiTable {
     flex: 9;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    height: 100%;
+    // background-color: #ffffff44;
+    max-height: 80vh;
+    flex-wrap: wrap;
+    @include hideYScroll;
+    margin-top: 2rem;
     .smallTable {
-      flex: 1 0 20%;
-      // background-color: #ffffff88;
+      min-width: 20%;
+      flex: 1;
+      background-color: #ffffff33;
+      // border: 1px solid red;
+      border-radius: $bd_radius;
+      padding: 0.5rem 1rem;
+      gap: 0.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
     }
   }
   .MainTable {
     flex: 1;
+    margin: 0 auto;
+    border-radius: $bd_radius;
+    max-width: 1000px;
+    width: 100%;
+    background-color: #ffffff55;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     gap: 0.25rem;
-    padding: 0 1rem;
+    padding: 0.5rem 1rem;
     position: relative;
-    .result {
-      width: 30%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      z-index: 1;
-      position: absolute;
-      bottom: 1rem;
-      animation: appear 300ms 200ms forwards;
-      opacity: 0;
-    }
+  }
+  .result {
+    background-color: yellow;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    animation: appear 300ms 200ms forwards;
+    opacity: 0;
   }
 }
 
@@ -53,5 +73,25 @@
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1480px) {
+  .PokerTable {
+    .MultiTable {
+      .smallTable {
+        min-width: 40%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $max_width2) {
+  .PokerTable {
+    .MultiTable {
+      .smallTable {
+        min-width: 100%;
+      }
+    }
   }
 }

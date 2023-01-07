@@ -11,3 +11,12 @@ $white: #ffffff;
 $bg_btn: #495479;
 
 $bd_radius: 0.25rem;
+
+@mixin hideYScroll {
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

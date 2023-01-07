@@ -30,6 +30,7 @@ export const PAY_TABLE = {
 
 export type RANK_TYPE = keyof typeof RANK;
 export type PAY_TABLE_TYPE = keyof typeof PAY_TABLE;
+export type GAME_STATUS_TYPE = keyof typeof GAME_STATUS;
 
 export const GAME_STATUS = {
   ERROR: -2,
