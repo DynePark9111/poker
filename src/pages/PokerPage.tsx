@@ -9,6 +9,8 @@ import axios from "axios";
 import { RANK_TYPE, GAME_STATUS } from "../types/types";
 import { INITIAL_DECK, URL } from "../data/data";
 import Total from "../components/Total";
+import confetti from "../assets/lottie/confetti.json";
+import LottieImage from "../components/LottieImage";
 
 export type mainCardsType = {
   cards: string[];
@@ -109,6 +111,8 @@ export default function PokerPage() {
     setToHold([]);
   }
 
+  let isBigWin = 2;
+
   return (
     <div className={styles.PokerPage}>
       <Background color="#005f00" />
@@ -131,6 +135,14 @@ export default function PokerPage() {
         status={gameStatus()}
         playOnClick={playOnClick}
         multiOnClick={multiOnClick}
+      />
+      <LottieImage
+        image={confetti}
+        play={
+          status === GAME_STATUS.END &&
+          total > (multiDecks.length + 1) * isBigWin
+        }
+        loop={false}
       />
     </div>
   );
