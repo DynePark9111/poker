@@ -1,5 +1,5 @@
-import styles from "../styles/PlayBtn.module.scss";
-import Btn from "./Btn";
+import styles from "../../styles/PlayBtn.module.scss";
+import Btn from "../Btn";
 
 type PlayBtnProps = {
   playOnClick: () => void;

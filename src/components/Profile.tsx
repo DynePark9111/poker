@@ -1,5 +1,5 @@
 import styles from "../styles/Profile.module.scss";
-import profileImage from "../assets/profile.webp";
+import profileImage from "../assets/icons/profile.webp";
 import Btn from "./Btn";
 import { useNavigate } from "react-router-dom";
 

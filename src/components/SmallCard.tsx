@@ -16,7 +16,9 @@ export default function SmallCard({ card, status }: CardProps) {
       data-value={card[0]}
       id={isStart ? styles.flipBack : styles.flipFront}
     >
-      <div className={styles.front}>{card[0]}</div>
+      <div className={styles.front} id={isStart ? styles.hide : styles.show}>
+        {card[0]}
+      </div>
       <div className={styles.back} />
     </div>
   );

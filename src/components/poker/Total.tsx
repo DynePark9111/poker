@@ -1,19 +1,19 @@
-import styles from "../styles/Total.module.scss";
-import ListItem from "./ListItem";
+import styles from "../../styles/Total.module.scss";
+import ListItem from "../ListItem";
 import { useEffect, useState } from "react";
-import info from "../assets/icons/info.webp";
-import Modal from "./Modal";
-import gems from "../assets/icons/gems.webp";
-import gem from "../assets/icons/gem_purple.webp";
-import star from "../assets/icons/star.webp";
-import Btn from "./Btn";
+import info from "../../assets/icons/info.webp";
+import Modal from "../Modal";
+import gems from "../../assets/icons/gems.webp";
+import gem from "../../assets/icons/gem_purple.webp";
+import star from "../../assets/icons/star.webp";
+import Btn from "../Btn";
 import {
   GAME_STATUS,
   PAY_TABLE,
   PROBABILITY_TABLE,
   RANK,
   RANK_TYPE,
-} from "../types/types";
+} from "../../types/types";
 
 type TotalProps = {
   total: number;

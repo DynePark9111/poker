@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import Background from "../components/Background";
-import PokerTable from "../components/PokerTable";
+import PokerTable from "../components/poker/PokerTable";
 import Menu from "../components/Menu";
-import PlayBtn from "../components/PlayBtn";
+import PlayBtn from "../components/poker/PlayBtn";
 import Wallet from "../components/Wallet";
 import styles from "../styles/PokerPage.module.scss";
 import axios from "axios";
 import { RANK_TYPE, GAME_STATUS } from "../types/types";
 import { INITIAL_DECK, URL } from "../data/data";
-import Total from "../components/Total";
+import Total from "../components/poker/Total";
 import confetti from "../assets/lottie/confetti.json";
 import LottieImage from "../components/LottieImage";
 

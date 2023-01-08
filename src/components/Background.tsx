@@ -1,5 +1,5 @@
 import styles from "../styles/Background.module.scss";
-import chip from "../assets/chip.svg";
+import chip from "../assets/icons/chip.svg";
 
 type BackgroundProps = {
   icon?: string;

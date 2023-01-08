@@ -62,13 +62,18 @@
     backface-visibility: hidden;
     z-index: 1;
     background-color: $white;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 3rem;
-    // font-size: 2vmin;
+    &#hide {
+      color: white;
+    }
+    &show {
+      color: inherit;
+    }
+
     &::after {
       line-height: 0;
       display: block;
