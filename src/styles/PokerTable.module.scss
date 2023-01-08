@@ -24,7 +24,7 @@
     margin-top: 2rem;
     .smallTable {
       @include boxShadow;
-      min-width: 20%;
+      min-width: 11%;
       flex: 1;
       background-color: #ffffff33;
       // border: 1px solid red;
@@ -87,7 +87,16 @@
   }
 }
 
-@media screen and (max-width: 1480px) {
+@media screen and (max-width: 250rem) {
+  .PokerTable {
+    .MultiTable {
+      .smallTable {
+        min-width: 20%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 120rem) {
   .PokerTable {
     .MultiTable {
       .smallTable {
@@ -97,11 +106,11 @@
   }
 }
 
-@media screen and (max-width: $max_width2) {
+@media screen and (max-width: 60rem) {
   .PokerTable {
     .MultiTable {
       .smallTable {
-        min-width: 100%;
+        min-width: 80%;
       }
     }
   }

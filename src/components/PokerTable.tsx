@@ -2,6 +2,7 @@ import styles from "../styles/PokerTable.module.scss";
 import Card from "./Card";
 import { COLOR_TABLE, GAME_STATUS, PAY_TABLE, RANK } from "../types/types";
 import { mainCardsType } from "../pages/PokerPage";
+import SmallCard from "./SmallCard";
 
 type PokerTableProps = {
   mainCards: mainCardsType;
@@ -52,7 +53,7 @@ function MultiTable({ multiDecks, status }: MultiTableProps) {
           <div className={styles.smallTable} key={multiDeck.cards.join() + i}>
             <Result status={status} cards={multiDeck} />
             {multiDeck.cards.map((card: string) => {
-              return <Card key={card} card={card} status={status} />;
+              return <SmallCard key={card} card={card} status={status} />;
             })}
           </div>
         );

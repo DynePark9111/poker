@@ -23,36 +23,36 @@ export default function Events() {
   return (
     <div className={styles.Events}>
       <Event
-        icon={"X"}
-        title="title"
-        subtitle="subtitle"
-        time="1h 2m"
-        info="TODO"
-        link="poker"
-        image="image"
-        color="red"
-        available={false}
-      />
-      <Event
-        icon={"X"}
-        title="title"
-        subtitle="subtitle"
-        time="1h 2m"
-        info="TODO"
-        link="poker"
-        image="image"
-        color="red"
-        available={false}
-      />
-      <Event
         icon={duel}
-        title="DUEL"
-        subtitle="I CHALLENGE YOU TO A DULE"
+        title="JACKS OR BETTER"
+        subtitle="5 card poker game"
         time="01H 02M"
         info="TODO"
         link="poker"
         image="https://pbs.twimg.com/media/FThIj9QWAAAFjE7.jpg"
         color="#A60528"
+      />
+      <Event
+        icon={"X"}
+        title="title"
+        subtitle="subtitle"
+        time="1h 2m"
+        info="TODO"
+        link="poker"
+        image="image"
+        color="red"
+        available={false}
+      />
+      <Event
+        icon={"X"}
+        title="title"
+        subtitle="subtitle"
+        time="1h 2m"
+        info="TODO"
+        link="poker"
+        image="image"
+        color="red"
+        available={false}
       />
       <Event
         icon={"X"}

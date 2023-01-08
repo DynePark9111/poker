@@ -51,9 +51,10 @@ export default function PokerPage() {
   }
 
   function multiOnClick() {
+    let max = 64;
     if (status === GAME_STATUS.START) {
-      if (multi < 32) return setMulti((prev: number) => prev * 2);
-      if (multi >= 32) return setMulti(1);
+      if (multi < max) return setMulti((prev: number) => prev * 2);
+      if (multi >= max) return setMulti(1);
     } else {
       alert("You can only change before starting the game.");
     }

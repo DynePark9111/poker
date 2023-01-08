@@ -7,7 +7,7 @@ type BtnProps = {
   onClick?: any;
 };
 
-const defaultColor = "#495479";
+const defaultColor = "#343c4f";
 
 export default function Btn({
   children,

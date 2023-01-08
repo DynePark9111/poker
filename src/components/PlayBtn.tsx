@@ -16,10 +16,10 @@ export default function PlayBtn({
 }: PlayBtnProps) {
   return (
     <div className={styles.PlayBtn}>
-      <Btn color="#eec306" onClick={multiOnClick}>
+      <Btn color="#efc308" onClick={multiOnClick}>
         <div className={styles.multi}>x{multi}</div>
       </Btn>
-      <Btn color="#eec306" onClick={playOnClick}>
+      <Btn color="#efc308" onClick={playOnClick}>
         <div className={styles.play}>{status}</div>
       </Btn>
     </div>

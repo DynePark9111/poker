@@ -1,0 +1,128 @@
+@use "./__global" as *;
+
+@mixin border {
+  border: 1px solid $black;
+  border-radius: $bd_radius;
+}
+
+.SmallCard {
+  padding: 0;
+
+  width: 100%;
+  max-width: 12rem;
+  aspect-ratio: 2.5 / 3.5;
+  position: relative;
+  transform-style: preserve-3d;
+
+  &#flipFront {
+    animation: flip 700ms forwards;
+  }
+  &#flipBack {
+    animation: flip2 700ms forwards;
+  }
+  &.noClick {
+    pointer-events: none;
+  }
+  &[data-suit="H"],
+  &[data-suit="D"] {
+    color: red;
+  }
+  &[data-suit="S"],
+  &[data-suit="C"] {
+    color: black;
+  }
+  &[data-suit="X"] {
+    .front {
+      .icon,
+      .cornerNumber {
+        display: none;
+      }
+    }
+  }
+
+  .back {
+    cursor: auto;
+    @include border();
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    backface-visibility: hidden;
+    background-image: url("https://images.cdn2.stockunlimited.net/illustration/playing-cards-background_1608080.png");
+    background-position: top right;
+    background-repeat: repeat;
+  }
+  .front {
+    @include border();
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    transform: rotateY(-180deg);
+    backface-visibility: hidden;
+    z-index: 1;
+    background-color: $white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    // font-size: 2vmin;
+    &::after {
+      line-height: 0;
+      display: block;
+      width: 0.7em;
+    }
+  }
+}
+
+[data-suit="H"] .front::after {
+  content: url("../assets/cards/heart.svg");
+}
+
+[data-suit="S"] .front::after {
+  content: url("../assets/cards/spade.svg");
+}
+
+[data-suit="C"] .front::after {
+  content: url("../assets/cards/club.svg");
+}
+
+[data-suit="D"] .front::after {
+  content: url("../assets/cards/diamond.svg");
+}
+
+@media screen and (max-width: 60rem) {
+  .SmallCard {
+    .front {
+      font-size: 2rem;
+    }
+  }
+}
+
+@keyframes flip {
+  from {
+    -webkit-transform: rotateY(0);
+    -moz-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+  to {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes flip2 {
+  from {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  to {
+    -webkit-transform: rotateY(0);
+    -moz-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+}
