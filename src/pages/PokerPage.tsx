@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Background from "../components/Background";
 import PokerTable from "../components/poker/PokerTable";
 import Menu from "../components/Menu";
@@ -11,6 +11,7 @@ import { INITIAL_DECK, URL } from "../data/data";
 import Total from "../components/poker/Total";
 import confetti from "../assets/lottie/confetti.json";
 import LottieImage from "../components/LottieImage";
+import { AlertContext } from "../contexts/AlertContext";
 
 export type mainCardsType = {
   cards: string[];
@@ -23,6 +24,7 @@ const INITIAL_MAIN_CARDS: mainCardsType = {
 };
 
 export default function PokerPage() {
+  //TODO : FIX THIS MESS
   //res game/new
   const [mainCards, setMainCards] = useState<mainCardsType>(INITIAL_MAIN_CARDS);
 
@@ -34,6 +36,8 @@ export default function PokerPage() {
   const [multi, setMulti] = useState(1);
   const [toHold, setToHold] = useState<string[]>([]);
   const [status, setStatus] = useState(GAME_STATUS.START);
+
+  const { addAlert } = useContext(AlertContext);
 
   useEffect(() => {
     function duplicateArray(length: number, fillWith: any) {
@@ -56,7 +60,7 @@ export default function PokerPage() {
       if (multi < max) return setMulti((prev: number) => prev * 2);
       if (multi >= max) return setMulti(1);
     } else {
-      alert("You can only change before starting the game.");
+      addAlert("You can only change before the game.", "error");
     }
   }
 

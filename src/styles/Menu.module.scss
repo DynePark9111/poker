@@ -31,6 +31,9 @@
 
     .ListBtn {
       margin-bottom: 1rem;
+      &#disabled {
+        filter: grayscale(1);
+      }
       .wrapper {
         position: relative;
         color: $white;

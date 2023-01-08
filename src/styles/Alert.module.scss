@@ -1,0 +1,79 @@
+@use "./__global" as *;
+
+$width: 300px;
+
+.Alert {
+  min-width: calc($width + 2rem);
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  gap: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  pointer-events: none;
+  .Message {
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 1rem;
+    color: $white;
+    width: $width;
+    height: 50px;
+    cursor: pointer;
+    animation: Enter 600ms ease-in-out, 600ms Exit 6000ms ease-in-out forwards;
+    pointer-events: all;
+    &.error {
+      background-color: $red;
+    }
+    &.warning {
+      background-color: $yellow;
+    }
+    &.success {
+      background-color: $green;
+    }
+    &.normal {
+      background-color: $blue;
+    }
+    &#exit {
+      animation: Out 600ms ease-in-out forwards;
+    }
+  }
+}
+
+@keyframes Enter {
+  0% {
+    transform: translateX(-100%);
+  }
+  75% {
+    transform: translateX(5%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes Exit {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-110%);
+  }
+}
+
+@keyframes Out {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-110%);
+  }
+}
