@@ -23,6 +23,7 @@
     @include hideYScroll;
     margin-top: 2rem;
     .smallTable {
+      @include boxShadow;
       min-width: 20%;
       flex: 1;
       background-color: #ffffff33;
@@ -34,9 +35,18 @@
       align-items: center;
       justify-content: center;
       position: relative;
+      .Card {
+        opacity: 0;
+        background-color: red;
+        .front {
+          opacity: 0;
+          background-color: red;
+        }
+      }
     }
   }
   .MainTable {
+    @include boxShadow;
     flex: 1;
     margin: 0 auto;
     border-radius: $bd_radius;

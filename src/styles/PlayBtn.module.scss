@@ -3,7 +3,7 @@
 .PlayBtn {
   position: fixed;
   bottom: 1rem;
-  right: 2rem;
+  right: 1rem;
   display: flex;
   gap: 0.5rem;
   .play,
@@ -22,5 +22,6 @@
     min-width: 3rem;
     width: 10vmin;
     font-size: calc(0.75rem + 3vmin);
+    position: relative;
   }
 }

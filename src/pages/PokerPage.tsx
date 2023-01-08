@@ -55,7 +55,7 @@ export default function PokerPage() {
       if (multi < 32) return setMulti((prev: number) => prev * 2);
       if (multi >= 32) return setMulti(1);
     } else {
-      console.log("can't change layout now");
+      alert("You can only change before starting the game.");
     }
   }
 
@@ -111,7 +111,11 @@ export default function PokerPage() {
     setToHold([]);
   }
 
-  let isBigWin = 2;
+  function playConfetti() {
+    let isBigWin =
+      status === GAME_STATUS.END && total > (multiDecks.length + 1) * 2;
+    return isBigWin;
+  }
 
   return (
     <div className={styles.PokerPage}>
@@ -126,7 +130,7 @@ export default function PokerPage() {
         status={status}
       />
       <Total
-        isClaim={status === GAME_STATUS.END}
+        status={status}
         total={status === GAME_STATUS.END ? total : 0}
         spend={status === GAME_STATUS.DEAL ? multiDecks.length + 1 : 0}
       />
@@ -136,14 +140,7 @@ export default function PokerPage() {
         playOnClick={playOnClick}
         multiOnClick={multiOnClick}
       />
-      <LottieImage
-        image={confetti}
-        play={
-          status === GAME_STATUS.END &&
-          total > (multiDecks.length + 1) * isBigWin
-        }
-        loop={false}
-      />
+      <LottieImage image={confetti} play={playConfetti()} loop={false} />
     </div>
   );
 }

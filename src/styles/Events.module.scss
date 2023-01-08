@@ -3,8 +3,6 @@
 // TODO fix layout
 // .Events
 //   .Event
-//     .infoIcon
-//       img
 //     .wrapper
 //       .time
 //       .info
@@ -41,15 +39,7 @@
     cursor: pointer;
     transform: skew(-2deg);
     aspect-ratio: 2/1;
-    .infoIcon {
-      cursor: pointer;
-      top: -0.5rem;
-      right: -0.75rem;
-      position: absolute;
-      img {
-        width: 3rem;
-      }
-    }
+    position: relative;
     .wrapper {
       height: 100%;
       display: flex;
@@ -121,11 +111,6 @@
     right: 6rem;
     grid-template-columns: repeat(2, 1fr);
     .Event {
-      .infoIcon {
-        img {
-          width: 2rem;
-        }
-      }
       .wrapper {
         .time {
           padding-right: 2rem;

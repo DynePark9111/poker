@@ -1,7 +1,7 @@
 $max_width: 82rem;
 $max_width2: 62rem;
 $max_width3: 42rem;
-$max_width4: 22rem;
+$max_width4: 23rem;
 
 // color
 $CTA: #eec306;
@@ -19,4 +19,12 @@ $bd_radius: 0.25rem;
   }
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+@mixin textShadow {
+  text-shadow: 1px 1px 1px $black;
+}
+
+@mixin boxShadow {
+  box-shadow: 1px 2px 2px #00000088;
 }

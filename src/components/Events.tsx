@@ -1,8 +1,8 @@
 import styles from "../styles/Events.module.scss";
-import about from "../assets/icons/info.webp";
 import robot from "../assets/icons/robot.webp";
 import duel from "../assets/icons/duel.webp";
 import { useNavigate } from "react-router-dom";
+import InfoIcon from "./InfoIcon";
 // import star from "../assets/icons/star.webp";
 // import trophy from "../assets/icons/trophy.webp";
 // import zone from "../assets/icons/zone.webp";
@@ -106,9 +106,7 @@ function Event({
 
   return (
     <div className={styles.Event} id={available ? "" : "disabled"}>
-      <div className={styles.infoIcon}>
-        <img src={about} alt={about} />
-      </div>
+      <InfoIcon />
       <div className={styles.wrapper} onClick={() => navigate(link)}>
         <div className={styles.time}>
           New event: {available ? time : disabled.time}

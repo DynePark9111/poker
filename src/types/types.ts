@@ -9,8 +9,7 @@ export const RANK = {
   "7": "Triple",
   "8": "Two Pair",
   "9": "Jacks or Better",
-  "10": "One Pair",
-  "11": "High Card",
+  "10": "All Other",
 } as const;
 
 export const PAY_TABLE = {
@@ -25,7 +24,20 @@ export const PAY_TABLE = {
   "8": 2,
   "9": 1,
   "10": 0,
-  "11": 0,
+} as const;
+
+export const PROBABILITY_TABLE = {
+  "0": 0,
+  "1": 0.002,
+  "2": 0.011,
+  "3": 0.236,
+  "4": 1.151,
+  "5": 1.101,
+  "6": 1.123,
+  "7": 7.445,
+  "8": 25.865,
+  "9": 21.459,
+  "10": 54.543,
 } as const;
 
 export const COLOR_TABLE = {
@@ -40,7 +52,6 @@ export const COLOR_TABLE = {
   "8": "#8489E3",
   "9": "#E75507",
   "10": "#A8A9AB",
-  "11": "#A8A9AB",
 } as const;
 
 export type RANK_TYPE = keyof typeof RANK;

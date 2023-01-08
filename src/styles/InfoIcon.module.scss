@@ -1,0 +1,19 @@
+@use "./__global" as *;
+
+.InfoIcon {
+  cursor: pointer;
+  top: -0.5rem;
+  right: -0.75rem;
+  position: absolute;
+  img {
+    width: 3rem;
+  }
+}
+
+@media screen and (max-width: $max_width2) {
+  .InfoIcon {
+    img {
+      width: 2rem;
+    }
+  }
+}

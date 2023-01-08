@@ -1,6 +1,6 @@
 @use "./__global" as *;
 
-@mixin shadow() {
+@mixin shadowPosition() {
   position: absolute;
   left: 0;
   right: 0;
@@ -10,7 +10,7 @@
 $skew: 6deg;
 
 .Btn {
-  box-shadow: 1px 2px 2px #00000088;
+  @include boxShadow;
   cursor: pointer;
   padding: 0;
   border-radius: $bd_radius;
@@ -27,12 +27,12 @@ $skew: 6deg;
     transform: skew($skew);
   }
   .shadowTop {
-    @include shadow;
+    @include shadowPosition;
     background-color: #ffffff22;
     top: 0;
   }
   .shadowBottom {
-    @include shadow;
+    @include shadowPosition;
     bottom: 0;
     background-color: #00000044;
   }
