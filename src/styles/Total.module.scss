@@ -34,13 +34,15 @@
 }
 
 .Window {
+  z-index: 9999;
   @include boxShadow;
   position: fixed;
   top: 2rem;
   bottom: 2rem;
   left: 2rem;
   right: 2rem;
-  max-width: 1000px;
+  max-width: 50rem;
+  max-height: 50rem;
   margin: auto;
   background-color: #258cf5;
   display: flex;
@@ -58,11 +60,12 @@
       font-size: 2rem;
     }
     .closeBtn {
+      height: 0;
       position: absolute;
       display: flex;
       justify-content: center;
       align-items: center;
-      top: 0;
+      top: 2rem;
       bottom: 0;
       right: -1rem;
       .xIcon {

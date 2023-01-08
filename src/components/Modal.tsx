@@ -9,12 +9,19 @@ type ModalProps = {
 
 export default function Modal({ isOpen, toggle, children }: ModalProps) {
   return (
-    <div
-      className={styles.Modal}
-      id={isOpen ? styles.show : ""}
-      onClick={toggle}
-    >
-      {children}
+    <div className={styles.Modal}>
+      {isOpen && (
+        <>
+          <div
+            className={styles.bg}
+            onClick={(e) => {
+              toggle();
+              e.stopPropagation();
+            }}
+          />
+          {children}
+        </>
+      )}
     </div>
   );
 }

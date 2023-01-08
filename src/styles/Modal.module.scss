@@ -1,17 +1,13 @@
 .Modal {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 200ms;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000000aa;
-  z-index: 9999;
-}
-
-#show {
-  opacity: 1;
-  pointer-events: auto;
+  .bg {
+    pointer-events: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000aa;
+    z-index: 9998;
+    cursor: pointer;
+  }
 }

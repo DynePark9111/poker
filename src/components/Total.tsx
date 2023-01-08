@@ -31,7 +31,6 @@ export default function Total({ total, status, spend }: TotalProps) {
     setIsOpen((prev) => !prev);
   }
 
-  console.log(`status; ${status}`);
   useEffect(() => {
     setEarned((prev) => prev + total);
     setSpent((prev) => prev + spend);
@@ -53,7 +52,12 @@ export default function Total({ total, status, spend }: TotalProps) {
         </div>
       </div>
       <Modal isOpen={isOpen} toggle={toggleModal}>
-        <Window earned={earned} spent={spent} rounds={rounds} />
+        <Window
+          earned={earned}
+          spent={spent}
+          rounds={rounds}
+          closeWindow={toggleModal}
+        />
       </Modal>
     </>
   );
@@ -63,14 +67,15 @@ type WindowProps = {
   earned: number;
   spent: number;
   rounds: number;
+  closeWindow: () => void;
 };
 
-function Window({ earned, spent, rounds }: WindowProps) {
+function Window({ earned, spent, rounds, closeWindow }: WindowProps) {
   return (
     <div className={styles.Window}>
       <header>
         <div className={styles.title}>Jacks or Better</div>
-        <div className={styles.closeBtn}>
+        <div className={styles.closeBtn} onClick={closeWindow}>
           <Btn color="#e4301f">
             <div className={styles.xIcon}>X</div>
           </Btn>
@@ -104,7 +109,7 @@ function PayTable() {
           .slice(1)
           .map((pay: string) => {
             return (
-              <tr>
+              <tr key={pay}>
                 <th>{RANK[pay as RANK_TYPE]}</th>
                 <td>{PAY_TABLE[pay as RANK_TYPE]}</td>
                 <td>{PROBABILITY_TABLE[pay as RANK_TYPE]}</td>
