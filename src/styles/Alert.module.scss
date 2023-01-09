@@ -17,6 +17,7 @@ $width: 300px;
   overflow: hidden;
   pointer-events: none;
   .Message {
+    border-radius: $bd_radius;
     text-align: center;
     font-size: 0.875rem;
     font-weight: 600;
