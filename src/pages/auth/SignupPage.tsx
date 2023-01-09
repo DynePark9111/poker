@@ -1,10 +1,10 @@
 import axios from "axios";
-import { FormEvent, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import FormInput from "../components/FormInput";
-import { AlertContext } from "../contexts/AlertContext";
-import styles from "../styles/SignupPage.module.scss";
-import { validate } from "../utils/auth";
+import FormInput from "../../components/FormInput";
+import { AlertContext } from "../../contexts/AlertContext";
+import styles from "../../styles/pages/auth/SignupPage.module.scss";
+import { validate } from "../../utils/auth";
 
 export default function SignupPage() {
   const { addAlert } = useContext(AlertContext);

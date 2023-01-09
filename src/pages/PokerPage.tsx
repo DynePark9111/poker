@@ -4,7 +4,7 @@ import PokerTable from "../components/poker/PokerTable";
 import Menu from "../components/Menu";
 import PlayBtn from "../components/poker/PlayBtn";
 import Wallet from "../components/Wallet";
-import styles from "../styles/PokerPage.module.scss";
+import styles from "../styles/pages/PokerPage.module.scss";
 import axios from "axios";
 import { RANK_TYPE, GAME_STATUS } from "../types/types";
 import { INITIAL_DECK, URL } from "../data/data";
@@ -12,6 +12,7 @@ import Total from "../components/poker/Total";
 import confetti from "../assets/lottie/confetti.json";
 import LottieImage from "../components/LottieImage";
 import { AlertContext } from "../contexts/AlertContext";
+import { UserContext } from "../contexts/UserContext";
 
 export type mainCardsType = {
   cards: string[];
@@ -24,6 +25,9 @@ const INITIAL_MAIN_CARDS: mainCardsType = {
 };
 
 export default function PokerPage() {
+  const { addAlert } = useContext(AlertContext);
+  const { user, handleGem } = useContext(UserContext);
+
   //TODO : FIX THIS MESS
   //res game/new
   const [mainCards, setMainCards] = useState<mainCardsType>(INITIAL_MAIN_CARDS);
@@ -36,8 +40,6 @@ export default function PokerPage() {
   const [multi, setMulti] = useState(1);
   const [toHold, setToHold] = useState<string[]>([]);
   const [status, setStatus] = useState(GAME_STATUS.START);
-
-  const { addAlert } = useContext(AlertContext);
 
   useEffect(() => {
     function duplicateArray(length: number, fillWith: any) {
@@ -80,6 +82,7 @@ export default function PokerPage() {
         setMainCards(res.data);
         setStatus(GAME_STATUS.DEAL);
         setMultiDecks(Array(multi).fill(res.data));
+        handleGem(user.gem - multi);
       })
       .catch((err) => {
         console.log(err);
@@ -112,6 +115,7 @@ export default function PokerPage() {
 
   async function endGame() {
     setStatus(GAME_STATUS.START);
+    handleGem(user.gem + total);
     setMainCards(INITIAL_MAIN_CARDS);
     setToHold([]);
   }

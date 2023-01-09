@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import FormInput from "../components/FormInput";
-import { AlertContext } from "../contexts/AlertContext";
-import { UserContext } from "../contexts/UserContext";
-import { URL } from "../data/data";
-import styles from "../styles/LoginPage.module.scss";
-import { validate } from "../utils/auth";
+import FormInput from "../../components/FormInput";
+import { AlertContext } from "../../contexts/AlertContext";
+import { UserContext } from "../../contexts/UserContext";
+import { URL } from "../../data/data";
+import styles from "../../styles/pages/auth/LoginPage.module.scss";
+import { validate } from "../../utils/auth";
 
 export default function LoginPage() {
   const { addAlert } = useContext(AlertContext);

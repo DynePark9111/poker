@@ -1,0 +1,12 @@
+@use "../__global" as *;
+
+.Layout {
+  .ribbon {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 1rem;
+    background-color: $black;
+    z-index: 1;
+  }
+}

@@ -48,20 +48,15 @@ export default function Menu() {
             icon={trophy}
             onClick={() => navigate("/poker")}
           />
+          <ListBtn title={"my"} icon={rank} onClick={() => navigate("/my")} />
           <ListBtn
-            title={"my home"}
-            icon={rank}
-            onClick={() => navigate("/my")}
+            title={"auth"}
+            icon={news}
+            onClick={() => navigate("/auth")}
           />
           <ListBtn
             title={"ranking"}
             icon={rank}
-            onClick={underDev}
-            disabled={true}
-          />
-          <ListBtn
-            title={"news"}
-            icon={news}
             onClick={underDev}
             disabled={true}
           />
@@ -78,9 +73,9 @@ export default function Menu() {
             disabled={true}
           />
           <ListBtn
-            title={"report"}
+            title={"not found"}
             icon={report}
-            onClick={underDev}
+            onClick={() => navigate("notFound")}
             disabled={true}
           />
         </ul>

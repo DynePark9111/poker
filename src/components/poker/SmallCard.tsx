@@ -1,5 +1,5 @@
-import styles from "../styles/SmallCard.module.scss";
-import { GAME_STATUS } from "../types/types";
+import styles from "../../styles/poker/SmallCard.module.scss";
+import { GAME_STATUS } from "../../types/types";
 
 type CardProps = {
   card: string;

@@ -1,6 +1,8 @@
 import styles from "../styles/Wallet.module.scss";
 import greenGem from "../assets/icons/gem_green.webp";
 import purpleGem from "../assets/icons/gem_purple.webp";
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 type WalletItemProps = {
   image: string;
@@ -8,10 +10,12 @@ type WalletItemProps = {
 };
 
 export default function Wallet() {
+  const { user } = useContext(UserContext);
+
   return (
     <div className={styles.Wallet}>
-      <WalletItem image={purpleGem} amount={100} />
-      <WalletItem image={greenGem} amount={1132131232} />
+      <WalletItem image={purpleGem} amount={user.gem} />
+      <WalletItem image={greenGem} amount={user.cash} />
     </div>
   );
 }

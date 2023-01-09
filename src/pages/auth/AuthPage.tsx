@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "../styles/AuthPage.module.scss";
+import styles from "../../styles/pages/auth/AuthPage.module.scss";
 import { IoMailOutline } from "react-icons/io5";
 
 export default function AuthPage() {

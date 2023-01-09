@@ -1,6 +1,6 @@
-@use "./__global" as *;
+@use "../../__global" as *;
 
-.LoginPage {
+.SignupPage {
   form {
     background-color: $white;
     padding: 2rem;
@@ -8,13 +8,12 @@
     display: flex;
     flex-direction: column;
   }
-  .findpw {
-    cursor: pointer;
+  a {
+    margin-top: 0.5rem;
     font-size: 0.75rem;
     color: $black;
     text-decoration: underline;
     align-self: end;
-    padding: 0.25rem;
   }
   button[type="submit"] {
     margin-top: 1rem;

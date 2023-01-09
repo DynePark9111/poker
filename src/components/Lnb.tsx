@@ -4,7 +4,7 @@ import styles from "../styles/Lnb.module.scss";
 import Btn from "./Btn";
 
 type LnbProps = {
-  title: string;
+  title?: string;
 };
 
 export default function Lnb({ title }: LnbProps) {

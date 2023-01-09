@@ -1,4 +1,4 @@
-@use "./__global" as *;
+@use "../__global" as *;
 
 @mixin border {
   border: 1px solid $black;
@@ -83,19 +83,19 @@
 }
 
 [data-suit="H"] .front::after {
-  content: url("../assets/cards/heart.svg");
+  content: url("../../assets/cards/heart.svg");
 }
 
 [data-suit="S"] .front::after {
-  content: url("../assets/cards/spade.svg");
+  content: url("../../assets/cards/spade.svg");
 }
 
 [data-suit="C"] .front::after {
-  content: url("../assets/cards/club.svg");
+  content: url("../../assets/cards/club.svg");
 }
 
 [data-suit="D"] .front::after {
-  content: url("../assets/cards/diamond.svg");
+  content: url("../../assets/cards/diamond.svg");
 }
 
 @media screen and (max-width: 60rem) {

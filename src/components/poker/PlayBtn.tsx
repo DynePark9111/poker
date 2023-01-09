@@ -1,4 +1,4 @@
-import styles from "../../styles/PlayBtn.module.scss";
+import styles from "../../styles/poker/PlayBtn.module.scss";
 import Btn from "../Btn";
 
 type PlayBtnProps = {

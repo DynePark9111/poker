@@ -1,6 +1,6 @@
 import Background from "../components/Background";
 import Lnb from "../components/Lnb";
-import styles from "../styles/MyPage.module.scss";
+import styles from "../styles/pages/MyPage.module.scss";
 import profileImage from "../assets/icons/profile.webp";
 import Btn from "../components/Btn";
 import rank from "../assets/icons/rank.webp";
@@ -14,16 +14,14 @@ import robot2 from "../assets/icons/robot2.webp";
 import robot3 from "../assets/icons/robot3.webp";
 import { FaCog } from "react-icons/fa";
 import ListItem from "../components/ListItem";
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 export default function MyPage() {
-  let user = {
-    _id: "123",
-    userName: "userName",
-  };
   return (
     <div className={styles.MyPage}>
       <Background color="#024BC1" />
-      <Lnb title={user.userName} />
+      <Lnb title="My" />
       <MyPageContent />
     </div>
   );
@@ -38,24 +36,24 @@ function MyPageContent() {
   );
 }
 
-const userName = "userName";
-
 function MyPageTop() {
+  const { user } = useContext(UserContext);
+
   return (
     <div className={styles.top}>
       <div className={styles.icon}>
         <div className={styles.cog}>
           <FaCog />
         </div>
-        <img src={profileImage} alt={userName} />
-        <div className={styles.userId}>userId</div>
+        <img src={profileImage} alt={user.username} />
+        <div className={styles.userId}>{user._id}</div>
       </div>
       <div className={styles.userName}>
         <div className={styles.cog}>
           <FaCog />
         </div>
         <Btn color="#343C4F">
-          <div className={styles.wrapper}>{userName}</div>
+          <div className={styles.wrapper}>{user.username}</div>
         </Btn>
       </div>
       <div className={styles.nameColor}>

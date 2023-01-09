@@ -1,4 +1,4 @@
-import styles from "../../styles/Total.module.scss";
+import styles from "../../styles/poker/Total.module.scss";
 import ListItem from "../ListItem";
 import { useEffect, useState } from "react";
 import info from "../../assets/icons/info.webp";

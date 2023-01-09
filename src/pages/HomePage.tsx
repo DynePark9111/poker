@@ -4,7 +4,7 @@ import Events from "../components/Events";
 import Menu from "../components/Menu";
 import Profile from "../components/Profile";
 import Wallet from "../components/Wallet";
-import styles from "../styles/HomePage.module.scss";
+import styles from "../styles/pages/HomePage.module.scss";
 
 export default function HomePage() {
   return (

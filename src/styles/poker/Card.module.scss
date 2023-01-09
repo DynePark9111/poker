@@ -1,4 +1,4 @@
-@use "./__global" as *;
+@use "../__global" as *;
 
 @mixin border {
   border: 1px solid $black;
@@ -120,50 +120,50 @@
 }
 
 [data-suit="H"] .icon {
-  background-image: url("../assets/cards/heart.svg");
+  background-image: url("../../assets/cards/heart.svg");
 }
 
 [data-suit="D"] .icon {
-  background-image: url("../assets/cards/diamond.svg");
+  background-image: url("../../assets/cards/diamond.svg");
 }
 
 [data-suit="S"] .icon {
-  background-image: url("../assets/cards/spade.svg");
+  background-image: url("../../assets/cards/spade.svg");
   filter: brightness(0);
 }
 
 [data-suit="C"] .icon {
-  background-image: url("../assets/cards/club.svg");
+  background-image: url("../../assets/cards/club.svg");
   filter: brightness(0);
 }
 
 [data-suit="H"] .cornerNumber::after {
-  content: url("../assets/cards/heart.svg");
+  content: url("../../assets/cards/heart.svg");
 }
 
 [data-suit="S"] .cornerNumber::after {
-  content: url("../assets/cards/spade.svg");
+  content: url("../../assets/cards/spade.svg");
 }
 
 [data-suit="C"] .cornerNumber::after {
-  content: url("../assets/cards/club.svg");
+  content: url("../../assets/cards/club.svg");
 }
 
 [data-suit="D"] .cornerNumber::after {
-  content: url("../assets/cards/diamond.svg");
+  content: url("../../assets/cards/diamond.svg");
 }
 
 //data-value
 [data-value="J"] .icon {
-  background-image: url("../assets/cards/jack.svg");
+  background-image: url("../../assets/cards/jack.svg");
 }
 
 [data-value="Q"] .icon {
-  background-image: url("../assets/cards/queen.svg");
+  background-image: url("../../assets/cards/queen.svg");
 }
 
 [data-value="K"] .icon {
-  background-image: url("../assets/cards/king.svg");
+  background-image: url("../../assets/cards/king.svg");
 }
 
 [data-value="A"] .icon,

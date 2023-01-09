@@ -1,8 +1,8 @@
-import styles from "../../styles/PokerTable.module.scss";
-import Card from "../Card";
+import styles from "../../styles/poker/PokerTable.module.scss";
+import Card from "./Card";
 import { COLOR_TABLE, GAME_STATUS, PAY_TABLE, RANK } from "../../types/types";
 import { mainCardsType } from "../../pages/PokerPage";
-import SmallCard from "../SmallCard";
+import SmallCard from "./SmallCard";
 
 type PokerTableProps = {
   mainCards: mainCardsType;
