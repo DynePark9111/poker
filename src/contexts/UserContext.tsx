@@ -12,7 +12,7 @@ const defaultUser = {
   _id: "#GUESTID9111",
   username: "guest",
   email: "guest@email.com",
-  gem: 10000,
+  gem: 1000,
   cash: 0,
 };
 
@@ -45,20 +45,17 @@ function userReducer(state: userType, action: AuthAction) {
 export const UserContext = createContext({} as UserContextType);
 
 export default function UserContextProvider({ children }: childrenProps) {
-  const [user, dispatch] = useReducer(userReducer, defaultUser);
+  const [user, dispatch] = useReducer(userReducer, defaultUser, () => {
+    console.log("useContext ------------");
+    const localUser = localStorage.getItem("user");
+    return localUser ? JSON.parse(localUser) : defaultUser;
+  });
 
-  //
   useEffect(() => {
+    console.log("useEffect ----");
+    console.log(user);
     localStorage.setItem("user", JSON.stringify(user));
   }, [user]);
-
-  function detectMode() {}
-
-  function getLocal() {
-    const local = localStorage.getItem("user");
-    return local ? JSON.parse(local) : detectMode();
-  }
-  //
 
   //dispatch
   function login(
@@ -95,7 +92,9 @@ export default function UserContextProvider({ children }: childrenProps) {
         withCredentials: true,
       });
       const { _id, username, email, gem, cash } = res.data;
-      login(_id, username, email, gem, cash);
+      if (username !== "guest") {
+        login(_id, username, email, gem, cash);
+      }
     } catch (err) {
       console.log(err);
       logout();
@@ -104,8 +103,10 @@ export default function UserContextProvider({ children }: childrenProps) {
 
   async function handleGem(gem: number, user: userType) {
     if (user.username === "guest") {
+      console.log("guest");
       dispatch({ type: "PATCH_GEM", payload: { gem: user.gem + gem } });
     } else {
+      console.log("user");
       try {
         const res = await axios.patch(
           `${URL}/user/gem`,

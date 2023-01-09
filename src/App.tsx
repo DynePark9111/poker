@@ -12,12 +12,9 @@ import Layout from "./components/layout/Layout";
 import { useContext } from "react";
 import { darkmodeContext } from "./contexts/DarkmodeContext";
 import SettingsPage from "./pages/SettingsPage";
-import { UserContext } from "./contexts/UserContext";
 
 export default function App() {
   const { isDark } = useContext(darkmodeContext);
-  const { user } = useContext(UserContext);
-  console.log(user);
   return (
     <div data-theme={isDark ? "dark" : "light"}>
       <Alert />
