@@ -5,6 +5,7 @@ import FormInput from "../../components/FormInput";
 import { AlertContext } from "../../contexts/AlertContext";
 import styles from "../../styles/pages/auth/SignupPage.module.scss";
 import { validate } from "../../utils/auth";
+import { URL } from "../../data/data";
 
 export default function SignupPage() {
   const { addAlert } = useContext(AlertContext);

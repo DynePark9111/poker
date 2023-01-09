@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useReducer, createContext } from "react";
+import { URL } from "../data/data";
 import {
   AuthAction,
   childrenProps,
@@ -82,7 +83,7 @@ function UserContextProvider({ children }: childrenProps) {
 
   const checkUser = async () => {
     try {
-      const res = await axios.get(`${URL}/auth/check`, {
+      const res = await axios.get(`${URL}/auth`, {
         withCredentials: true,
       });
       const { _id, username, email, gem, cash } = res.data;

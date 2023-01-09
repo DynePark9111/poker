@@ -30,10 +30,10 @@ export default function LoginPage() {
         withCredentials: true,
       });
       if (res.status === 200) {
-        const { _id, username, email } = res.data;
-        addAlert(`안녕하세요 ${username}님`, "success");
-        login(_id, username, email);
-        navigate("/shop");
+        const { _id, username, email, gem, cash } = res.data;
+        addAlert(`Hello, ${username}`, "success");
+        login(_id, username, email, gem, cash);
+        navigate("/");
       }
     } catch (err) {
       if (axios.isAxiosError(err)) {

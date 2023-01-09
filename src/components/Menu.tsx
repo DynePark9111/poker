@@ -11,6 +11,7 @@ import report from "../assets/icons/robot2.webp";
 import star from "../assets/icons/star.webp";
 import { useNavigate } from "react-router-dom";
 import { AlertContext } from "../contexts/AlertContext";
+import { UserContext } from "../contexts/UserContext";
 
 type ListBtnProps = {
   title: string;
@@ -21,6 +22,7 @@ type ListBtnProps = {
 
 export default function Menu() {
   const { addAlert } = useContext(AlertContext);
+  const { user, logout } = useContext(UserContext);
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -49,11 +51,15 @@ export default function Menu() {
             onClick={() => navigate("/poker")}
           />
           <ListBtn title={"my"} icon={rank} onClick={() => navigate("/my")} />
-          <ListBtn
-            title={"auth"}
-            icon={news}
-            onClick={() => navigate("/auth")}
-          />
+          {user.username === "guest" ? (
+            <ListBtn
+              title={"login"}
+              icon={news}
+              onClick={() => navigate("/auth")}
+            />
+          ) : (
+            <ListBtn title={"logout"} icon={news} onClick={logout} />
+          )}
           <ListBtn
             title={"ranking"}
             icon={rank}
@@ -76,7 +82,6 @@ export default function Menu() {
             title={"not found"}
             icon={report}
             onClick={() => navigate("notFound")}
-            disabled={true}
           />
         </ul>
       )}
