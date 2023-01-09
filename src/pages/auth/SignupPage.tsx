@@ -72,7 +72,7 @@ export default function SignupPage() {
       if (axios.isAxiosError(err)) {
         addAlert(err.message, "error");
       } else {
-        console.log("unexpected Error: ", err);
+        console.log(err);
       }
     }
   };

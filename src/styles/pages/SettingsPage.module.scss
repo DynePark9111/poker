@@ -1,0 +1,23 @@
+@use "../__global" as *;
+
+.SettingsPage {
+  margin-top: 20vh;
+  // background-color: #ffffff33;
+  .switches {
+    padding: 1rem;
+    margin: auto;
+    max-width: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .clear {
+    @include textShadow;
+    color: $white;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}

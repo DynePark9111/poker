@@ -27,7 +27,12 @@ export default function Menu() {
   const [isOpen, setIsOpen] = useState(false);
 
   function underDev() {
-    addAlert("Under development", "normal");
+    addAlert("Under development", "error");
+  }
+
+  function logoutClick() {
+    addAlert(`Goodbye ${user.username}`, "success");
+    logout();
   }
 
   return (
@@ -58,13 +63,12 @@ export default function Menu() {
               onClick={() => navigate("/auth")}
             />
           ) : (
-            <ListBtn title={"logout"} icon={news} onClick={logout} />
+            <ListBtn title={"logout"} icon={news} onClick={logoutClick} />
           )}
           <ListBtn
-            title={"ranking"}
+            title={"settings"}
             icon={rank}
-            onClick={underDev}
-            disabled={true}
+            onClick={() => navigate("/settings")}
           />
           <ListBtn
             title={"friend"}

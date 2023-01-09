@@ -81,8 +81,9 @@ export default function PokerPage() {
       .then((res) => {
         setMainCards(res.data);
         setStatus(GAME_STATUS.DEAL);
+        handleGem(-multi - 1, user);
+
         setMultiDecks(Array(multi).fill(res.data));
-        handleGem(user.gem - multi);
       })
       .catch((err) => {
         console.log(err);
@@ -93,7 +94,6 @@ export default function PokerPage() {
   async function changeCards() {
     setStatus(GAME_STATUS.LOADING);
     let notToHold = mainCards.cards.filter((x) => !new Set([...toHold]).has(x));
-
     let req = {
       myCards: mainCards.cards,
       count: multi + 1,
@@ -115,7 +115,7 @@ export default function PokerPage() {
 
   async function endGame() {
     setStatus(GAME_STATUS.START);
-    handleGem(user.gem + total);
+    handleGem(total, user);
     setMainCards(INITIAL_MAIN_CARDS);
     setToHold([]);
   }

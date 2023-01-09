@@ -1,0 +1,23 @@
+@use "./__global" as *;
+
+.OnOff {
+  max-width: 20rem;
+  text-align: center;
+  color: $white;
+  label {
+    @include textShadow;
+    font-size: 0.75rem;
+  }
+  .switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .btn {
+      @include textShadow;
+      color: $white;
+      font-weight: bold;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+    }
+  }
+}

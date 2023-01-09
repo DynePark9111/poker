@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useReducer, createContext } from "react";
+import { useReducer, createContext, useEffect } from "react";
 import { URL } from "../data/data";
 import {
   AuthAction,
@@ -9,7 +9,7 @@ import {
 } from "../types/contextTypes";
 
 const defaultUser = {
-  _id: "#GUESTID123",
+  _id: "#GUESTID9111",
   username: "guest",
   email: "guest@email.com",
   gem: 10000,
@@ -30,11 +30,11 @@ function userReducer(state: userType, action: AuthAction) {
     case "LOGOUT": {
       return defaultUser;
     }
-    case "PUT_GEM": {
+    case "PATCH_GEM": {
       const gem = action.payload.gem;
       return { ...state, gem };
     }
-    case "PUT_CASH": {
+    case "PATCH_CASH": {
       const cash = action.payload.cash;
       return { ...state, cash };
     }
@@ -42,24 +42,32 @@ function userReducer(state: userType, action: AuthAction) {
 }
 
 //Context
-export const UserContext = createContext<UserContextType>({
-  user: defaultUser,
-  login: () => {},
-  logout: () => {},
-  checkUser: () => {},
-  handleGem: () => {},
-  handleCash: () => {},
-});
+export const UserContext = createContext({} as UserContextType);
 
-function UserContextProvider({ children }: childrenProps) {
-  const [state, dispatch] = useReducer(userReducer, defaultUser);
-  const login = (
+export default function UserContextProvider({ children }: childrenProps) {
+  const [user, dispatch] = useReducer(userReducer, defaultUser);
+
+  //
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(user));
+  }, [user]);
+
+  function detectMode() {}
+
+  function getLocal() {
+    const local = localStorage.getItem("user");
+    return local ? JSON.parse(local) : detectMode();
+  }
+  //
+
+  //dispatch
+  function login(
     _id: string,
     username: string,
     email: string,
     gem: number,
     cash: number
-  ) => {
+  ) {
     dispatch({
       type: "LOGIN",
       payload: {
@@ -70,18 +78,18 @@ function UserContextProvider({ children }: childrenProps) {
         cash,
       },
     });
-  };
+  }
 
-  const logout = async () => {
+  async function logout() {
     try {
       await axios.get(`${URL}/auth/logout`, { withCredentials: true });
       dispatch({ type: "LOGOUT" });
     } catch (err) {
       console.log(err);
     }
-  };
+  }
 
-  const checkUser = async () => {
+  async function checkUser() {
     try {
       const res = await axios.get(`${URL}/auth`, {
         withCredentials: true,
@@ -92,44 +100,42 @@ function UserContextProvider({ children }: childrenProps) {
       console.log(err);
       logout();
     }
-  };
+  }
 
-  const handleGem = async (gem: number) => {
+  async function handleGem(gem: number, user: userType) {
+    if (user.username === "guest") {
+      dispatch({ type: "PATCH_GEM", payload: { gem: user.gem + gem } });
+    } else {
+      try {
+        const res = await axios.patch(
+          `${URL}/user/gem`,
+          { gem },
+          { withCredentials: true }
+        );
+        dispatch({ type: "PATCH_GEM", payload: { gem: res.data.gem } });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }
+
+  async function handleCash(cash: number) {
     try {
-      // const res = await axios.patch(
-      //   `${URL}/user/gem`,
-      //   { gem },
-      //   { withCredentials: true }
-      // );
-      // const resGem = res.data.gem;
-      // dispatch({ type: "PUT_GEM", payload: { gem: resGem } });
-      dispatch({ type: "PUT_GEM", payload: { gem } });
+      const res = await axios.patch(
+        `${URL}/user/cash`,
+        { cash },
+        { withCredentials: true }
+      );
+      dispatch({ type: "PATCH_CASH", payload: { cash: res.data.gem } });
     } catch (err) {
-      dispatch({ type: "PUT_GEM", payload: { gem } });
       console.log(err);
     }
-  };
-
-  const handleCash = async (cash: number) => {
-    try {
-      // const res = await axios.patch(
-      //   `${URL}/user/cash`,
-      //   { cash },
-      //   { withCredentials: true }
-      // );
-      // const resGem = res.data.gem;
-      // dispatch({ type: "PUT_CASH", payload: { cash: resGem } });
-      dispatch({ type: "PUT_CASH", payload: { cash } });
-    } catch (err) {
-      dispatch({ type: "PUT_CASH", payload: { cash } });
-      console.log(err);
-    }
-  };
+  }
 
   return (
     <UserContext.Provider
       value={{
-        user: state,
+        user,
         login,
         logout,
         checkUser,
@@ -141,5 +147,3 @@ function UserContextProvider({ children }: childrenProps) {
     </UserContext.Provider>
   );
 }
-
-export default UserContextProvider;

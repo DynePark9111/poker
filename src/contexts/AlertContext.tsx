@@ -1,36 +1,22 @@
-import { useReducer, createContext, ReactNode, FC } from "react";
-
-type childrenProps = {
-  children: ReactNode;
-};
-
-type status = "normal" | "success" | "warning" | "error";
-type alertType = {
-  id: string;
-  message: string;
-  status: status;
-};
-
-type AddAction = {
-  type: "ADD_ALERT";
-  payload: alertType;
-};
-type DeleteAction = {
-  type: "DELETE_ALERT";
-  payload: { id: string };
-};
-type AlertAction = AddAction | DeleteAction;
+import { useReducer, createContext, ReactNode, FC, useId } from "react";
+import {
+  AlertAction,
+  alertType,
+  childrenProps,
+  ContextType,
+  status,
+} from "../types/contextTypes";
 
 const defaultValue: alertType[] = [];
 
 function alertReducer(state: alertType[], action: AlertAction) {
-  const randomID = Math.random().toString();
+  const id = Math.random().toString();
   switch (action.type) {
     case "ADD_ALERT": {
       return [
         ...state,
         {
-          id: randomID,
+          id,
           message: action.payload.message,
           status: action.payload.status,
         },
@@ -42,36 +28,29 @@ function alertReducer(state: alertType[], action: AlertAction) {
   }
 }
 
-//Context
-type ContextType = {
-  alerts: alertType[];
-  addAlert: (message: string, status: status) => void;
-  deleteAlert: (id: string) => void;
-};
-
 export const AlertContext = createContext<ContextType>({
   alerts: defaultValue,
   addAlert: () => {},
   deleteAlert: () => {},
 });
 
-const AlertContextProvider: FC<childrenProps> = ({ children }) => {
+export default function AlertContextProvider({ children }: childrenProps) {
   const [state, dispatch] = useReducer(alertReducer, defaultValue);
-  const randomID = Math.random().toString();
+  const id = Math.random().toString();
 
-  const addAlert = (message: string, status: status): void => {
+  function addAlert(message: string, status: status) {
     dispatch({
       type: "ADD_ALERT",
-      payload: { id: randomID, message: message, status: status },
+      payload: { id, message, status },
     });
-  };
+  }
 
-  const deleteAlert = (id: string): void => {
+  function deleteAlert(id: string) {
     dispatch({
       type: "DELETE_ALERT",
-      payload: { id: id },
+      payload: { id },
     });
-  };
+  }
 
   return (
     <AlertContext.Provider
@@ -84,6 +63,4 @@ const AlertContextProvider: FC<childrenProps> = ({ children }) => {
       {children}
     </AlertContext.Provider>
   );
-};
-
-export default AlertContextProvider;
+}

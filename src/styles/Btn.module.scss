@@ -23,6 +23,16 @@ $skew: 6deg;
   border: 0.125rem solid $black;
   transform: skew(-($skew));
   position: relative;
+  box-shadow: inset;
+  &#disabled {
+    filter: grayscale(1);
+    border: none;
+    opacity: 0.5;
+    .shadowTop,
+    .shadowBottom {
+      display: none;
+    }
+  }
   & > * {
     transform: skew($skew);
   }

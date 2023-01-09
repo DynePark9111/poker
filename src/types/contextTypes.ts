@@ -20,11 +20,11 @@ type LogoutAction = {
 };
 
 type GemAction = {
-  type: "PUT_GEM";
+  type: "PATCH_GEM";
   payload: { gem: number };
 };
 type CashAction = {
-  type: "PUT_CASH";
+  type: "PATCH_CASH";
   payload: { cash: number };
 };
 
@@ -43,6 +43,38 @@ export type UserContextType = {
   ) => void;
   logout: () => void;
   checkUser: () => void;
-  handleGem: (gem: number) => void;
+  handleGem: (gem: number, user: userType) => void;
   handleCash: (cash: number) => void;
+};
+
+export type darkmodevContextType = {
+  isDark: boolean;
+  toggleDarkmode: () => void;
+};
+
+// AlertContext Types
+export type status = "normal" | "success" | "warning" | "error";
+
+export type alertType = {
+  id: string;
+  message: string;
+  status: status;
+};
+
+export type AddAction = {
+  type: "ADD_ALERT";
+  payload: alertType;
+};
+
+export type DeleteAction = {
+  type: "DELETE_ALERT";
+  payload: { id: string };
+};
+
+export type AlertAction = AddAction | DeleteAction;
+
+export type ContextType = {
+  alerts: alertType[];
+  addAlert: (message: string, status: status) => void;
+  deleteAlert: (id: string) => void;
 };

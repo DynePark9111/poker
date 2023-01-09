@@ -15,7 +15,7 @@ export default function Aside() {
   const navigate = useNavigate();
 
   function underDev() {
-    addAlert("Under development", "normal");
+    addAlert("Under development", "error");
   }
 
   return (

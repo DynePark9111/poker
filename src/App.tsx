@@ -9,16 +9,24 @@ import NotFoundPage from "./pages/NotFoundPage";
 import PokerPage from "./pages/PokerPage";
 import SignupPage from "./pages/auth/SignupPage";
 import Layout from "./components/layout/Layout";
+import { useContext } from "react";
+import { darkmodeContext } from "./contexts/DarkmodeContext";
+import SettingsPage from "./pages/SettingsPage";
+import { UserContext } from "./contexts/UserContext";
 
 export default function App() {
+  const { isDark } = useContext(darkmodeContext);
+  const { user } = useContext(UserContext);
+  console.log(user);
   return (
-    <>
+    <div data-theme={isDark ? "dark" : "light"}>
       <Alert />
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="my" element={<MyPage />} />
           <Route path="poker" element={<PokerPage />} />
+          <Route path="settings" element={<SettingsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
         <Route path="auth" element={<AuthLayout />}>
@@ -27,6 +35,6 @@ export default function App() {
           <Route path="signup" element={<SignupPage />} />
         </Route>
       </Routes>
-    </>
+    </div>
   );
 }

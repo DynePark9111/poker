@@ -15,6 +15,7 @@ export default function HomePage() {
       <Wallet />
       <Aside />
       <Events />
+      {/* POPUP */}
     </div>
   );
 }
