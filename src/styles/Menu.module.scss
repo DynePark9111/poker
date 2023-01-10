@@ -3,13 +3,10 @@
 .Menu {
   .menuBtn {
     position: fixed;
-    top: 0.5rem;
-    right: 1rem;
+    inset: 0.5rem 1rem auto auto;
     z-index: 99;
     .faBars {
-      color: $white;
-      font-size: 1.5rem;
-      padding: 0.625rem 2rem;
+      @include btnIcon;
     }
   }
   .menuItems {

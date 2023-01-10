@@ -52,7 +52,7 @@ export default function PokerPage() {
   function playOnClick() {
     if (status === GAME_STATUS.START && user.gem < multi + 1)
       return addAlert("You need more gems.", "error");
-    if (status === GAME_STATUS.LOADING) return console.log("LOADING");
+    if (status === GAME_STATUS.LOADING) return console.log("Game loading..");
     if (status === GAME_STATUS.START) return startGame();
     if (status === GAME_STATUS.DEAL) return changeCards();
     if (status === GAME_STATUS.END) return endGame();

@@ -12,16 +12,10 @@ const defaultGradient = `linear-gradient(
   rgba(0, 14, 33, 0.3) 50%,
   rgba(154, 186, 54, 0.3)
 )`;
-const defaultColor = `#000e21`;
-// const defaultColor = `#264482`;
-// const defaultColor = `red`;
-// const defaultColor = `blue`;
-// const defaultColor = `green`;
-// const defaultColor = `gold`;
 
 export default function Background({
   icon = chip,
-  color = defaultColor,
+  color,
   gradient = defaultGradient,
 }: BackgroundProps) {
   return (

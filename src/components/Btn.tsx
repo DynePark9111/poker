@@ -8,11 +8,9 @@ type BtnProps = {
   disabled?: boolean;
 };
 
-const defaultColor = "#343c4f";
-
 export default function Btn({
   children,
-  color = defaultColor,
+  color,
   onClick,
   disabled = false,
 }: BtnProps) {

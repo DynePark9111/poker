@@ -2,9 +2,7 @@
 
 .Aside {
   position: fixed;
-  top: 20%;
-  left: 0;
-  right: 0;
+  inset: 20% 0 auto 0;
   display: flex;
   justify-content: space-between;
   padding: 0 1rem;

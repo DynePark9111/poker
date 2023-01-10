@@ -2,34 +2,24 @@
 
 .PokerTable {
   position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
+  inset: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem 1rem 5rem 1rem;
   .MultiTable {
-    flex: 9;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     gap: 0.5rem;
-    // background-color: #ffffff44;
     max-height: 80vh;
-    flex-wrap: wrap;
     @include hideYScroll;
     margin-top: 2rem;
     .smallTable {
       @include boxShadow;
-      min-width: 11%;
-      flex: 1;
-      background-color: #ffffff33;
-      // border: 1px solid red;
+      background-color: #ffffff55;
       border-radius: $bd_radius;
-      padding: 0.5rem 1rem;
+      padding: 1rem 0.5rem;
       gap: 0.25rem;
       display: flex;
       align-items: center;
@@ -47,10 +37,8 @@
   }
   .MainTable {
     @include boxShadow;
-    flex: 1;
     margin: 0 auto;
     border-radius: $bd_radius;
-    max-width: 1000px;
     width: 100%;
     background-color: #ffffff55;
     display: flex;
@@ -87,31 +75,31 @@
   }
 }
 
-@media screen and (max-width: 250rem) {
-  .PokerTable {
-    .MultiTable {
-      .smallTable {
-        min-width: 20%;
-      }
-    }
-  }
-}
-@media screen and (max-width: 120rem) {
-  .PokerTable {
-    .MultiTable {
-      .smallTable {
-        min-width: 40%;
-      }
-    }
-  }
-}
+// @media screen and (max-width: 250rem) {
+//   .PokerTable {
+//     .MultiTable {
+//       .smallTable {
+//         min-width: 20%;
+//       }
+//     }
+//   }
+// }
+// @media screen and (max-width: 120rem) {
+//   .PokerTable {
+//     .MultiTable {
+//       .smallTable {
+//         min-width: 40%;
+//       }
+//     }
+//   }
+// }
 
-@media screen and (max-width: 60rem) {
-  .PokerTable {
-    .MultiTable {
-      .smallTable {
-        min-width: 80%;
-      }
-    }
-  }
-}
+// @media screen and (max-width: 60rem) {
+//   .PokerTable {
+//     .MultiTable {
+//       .smallTable {
+//         min-width: 80%;
+//       }
+//     }
+//   }
+// }

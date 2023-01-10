@@ -47,7 +47,7 @@ export type UserContextType = {
   handleCash: (cash: number) => void;
 };
 
-export type darkmodevContextType = {
+export type DarkmodeContextType = {
   isDark: boolean;
   toggleDarkmode: () => void;
 };
@@ -73,8 +73,13 @@ export type DeleteAction = {
 
 export type AlertAction = AddAction | DeleteAction;
 
-export type ContextType = {
+export type AlertContextType = {
   alerts: alertType[];
   addAlert: (message: string, status: status) => void;
   deleteAlert: (id: string) => void;
+};
+
+export type ModalContextType = {
+  activeModal: string;
+  setActiveModal: (modal: string) => void;
 };

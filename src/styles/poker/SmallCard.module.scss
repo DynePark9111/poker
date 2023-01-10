@@ -44,10 +44,7 @@
     cursor: auto;
     @include border();
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset: 0;
     backface-visibility: hidden;
     background-image: url("https://images.cdn2.stockunlimited.net/illustration/playing-cards-background_1608080.png");
     background-position: top right;
@@ -57,7 +54,7 @@
     @include border();
     width: 100%;
     height: 100%;
-    padding: 1rem;
+    padding: 0.25rem;
     transform: rotateY(-180deg);
     backface-visibility: hidden;
     z-index: 1;
@@ -66,7 +63,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
+    font-size: clamp(2rem, 4vmin, 3rem);
     &#hide {
       color: white;
     }
@@ -98,13 +95,13 @@
   content: url("../../assets/cards/diamond.svg");
 }
 
-@media screen and (max-width: 60rem) {
-  .SmallCard {
-    .front {
-      font-size: 2rem;
-    }
-  }
-}
+// @media screen and (max-width: 60rem) {
+//   .SmallCard {
+//     .front {
+//       font-size: 2rem;
+//     }
+//   }
+// }
 
 @keyframes flip {
   from {

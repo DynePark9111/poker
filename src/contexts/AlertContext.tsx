@@ -3,7 +3,7 @@ import {
   AlertAction,
   alertType,
   childrenProps,
-  ContextType,
+  AlertContextType,
   status,
 } from "../types/contextTypes";
 
@@ -28,7 +28,7 @@ function alertReducer(state: alertType[], action: AlertAction) {
   }
 }
 
-export const AlertContext = createContext<ContextType>({
+export const AlertContext = createContext<AlertContextType>({
   alerts: defaultValue,
   addAlert: () => {},
   deleteAlert: () => {},

@@ -3,11 +3,11 @@ import Btn from "./Btn";
 
 type OnOffProps = {
   title?: string;
-  isOn: boolean;
-  toggle: () => void;
+  isOn?: boolean;
+  toggle?: () => void;
 };
 
-export default function OnOff({ title, toggle, isOn }: OnOffProps) {
+export default function OnOff({ title = ":)", toggle, isOn }: OnOffProps) {
   return (
     <div className={styles.OnOff} onClick={toggle}>
       <label>{title}</label>

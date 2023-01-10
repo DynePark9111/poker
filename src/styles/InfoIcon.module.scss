@@ -1,6 +1,7 @@
 @use "./__global" as *;
 
 .InfoIcon {
+  z-index: 4;
   cursor: pointer;
   top: -0.5rem;
   right: -0.75rem;
