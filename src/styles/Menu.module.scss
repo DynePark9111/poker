@@ -4,7 +4,7 @@
   .menuBtn {
     position: fixed;
     inset: 0.5rem 1rem auto auto;
-    z-index: 99;
+    z-index: 9;
     .faBars {
       @include btnIcon;
     }

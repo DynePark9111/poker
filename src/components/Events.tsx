@@ -19,6 +19,15 @@ type EventProps = {
   available?: boolean;
 };
 
+const disabled = {
+  icon: robot,
+  title: "LOCKED",
+  subtitle: "currently unavailable...",
+  time: "00H 00M",
+  link: "none",
+  image: locks,
+};
+
 export default function Events() {
   return (
     <div className={styles.Events}>
@@ -75,15 +84,6 @@ export default function Events() {
   );
 }
 
-const disabled = {
-  icon: robot,
-  title: "LOCKED",
-  subtitle: "currently unavailable...",
-  time: "00H 00M",
-  link: "none",
-  image: locks,
-};
-
 function Event({
   icon,
   title,
@@ -91,7 +91,7 @@ function Event({
   time,
   link,
   image,
-  color = "purple",
+  color = "red",
   available = true,
 }: EventProps) {
   const { addAlert } = useContext(AlertContext);
@@ -110,6 +110,7 @@ function Event({
         <div className={styles.time}>
           New event: {available ? time : disabled.time}
         </div>
+
         <div className={styles.info} style={{ backgroundColor }}>
           <div className={styles.icon}>
             <img

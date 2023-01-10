@@ -12,6 +12,7 @@ import Layout from "./components/layout/Layout";
 import { useContext } from "react";
 import { DarkmodeContext } from "./contexts/DarkmodeContext";
 import SettingsPage from "./pages/SettingsPage";
+import ShopPage from "./pages/ShopPage";
 
 export default function App() {
   const { isDark } = useContext(DarkmodeContext);
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="my" element={<MyPage />} />
           <Route path="poker" element={<PokerPage />} />
           <Route path="settings" element={<SettingsPage />} />
+          <Route path="shop" element={<ShopPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
         <Route path="auth" element={<AuthLayout />}>
