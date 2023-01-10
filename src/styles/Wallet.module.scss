@@ -2,10 +2,14 @@
 
 .Wallet {
   position: fixed;
-  inset: 0.5rem 8rem auto auto;
+  inset: 0.5rem 8rem auto 7.5rem;
   z-index: 2;
   display: flex;
-  gap: 2rem;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  gap: 0.5rem 2rem;
+  align-items: center;
   .WalletItem {
     position: relative;
     img {
@@ -22,12 +26,5 @@
       background-color: $black;
       text-align: center;
     }
-  }
-}
-
-@media screen and (max-width: $max_width3) {
-  .Wallet {
-    flex-direction: column-reverse;
-    gap: 0.5rem;
   }
 }

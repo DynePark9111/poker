@@ -83,7 +83,7 @@ export default function Events() {
 const disabled = {
   icon: robot,
   title: "LOCKED",
-  subtitle: "CURRENTLY UNAVAILABLE...",
+  subtitle: "currently unavailable...",
   time: "00H 00M",
   info: "unavailabe",
   link: "none",
