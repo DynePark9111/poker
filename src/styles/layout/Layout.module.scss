@@ -3,8 +3,7 @@
 .Layout {
   .ribbon {
     position: fixed;
-    top: 0;
-    width: 100vw;
+    inset: 0 0 auto 0;
     height: 1rem;
     background-color: $black;
     z-index: 1;

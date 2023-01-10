@@ -2,10 +2,7 @@
   .bg {
     pointer-events: auto;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background-color: #000000aa;
     z-index: 9998;
     cursor: pointer;

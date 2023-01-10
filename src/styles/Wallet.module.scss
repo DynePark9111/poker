@@ -2,8 +2,7 @@
 
 .Wallet {
   position: fixed;
-  top: 0.5rem;
-  right: 8rem;
+  inset: 0.5rem 8rem auto auto;
   z-index: 2;
   display: flex;
   gap: 2rem;

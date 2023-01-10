@@ -3,9 +3,7 @@
 .Lnb {
   z-index: 9;
   position: fixed;
-  top: -0.25rem;
-  left: -0.5rem;
-  right: -0.5rem;
+  inset: -0.25rem -0.25rem auto -0.25rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

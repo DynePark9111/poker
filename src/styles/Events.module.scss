@@ -16,10 +16,7 @@
 
 .Events {
   position: fixed;
-  top: 0;
-  left: 8rem;
-  right: 8rem;
-  bottom: 0;
+  inset: 0 8rem;
   overflow-y: scroll;
   display: grid;
   grid-template-columns: repeat(2, 1fr);

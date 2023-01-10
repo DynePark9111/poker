@@ -44,10 +44,7 @@
     cursor: auto;
     @include border();
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset: 0;
     backface-visibility: hidden;
     background-image: url("https://images.cdn2.stockunlimited.net/illustration/playing-cards-background_1608080.png");
     background-position: top right;
