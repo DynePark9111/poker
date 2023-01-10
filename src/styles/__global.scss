@@ -7,15 +7,29 @@ $max_width4: 23rem;
 $purple: #816bff;
 $green: green;
 $blue: #2270ff;
-// $blue: #096dd9;
 $red: #a60628;
 $yellow: #efc308;
 $black: #000000;
 $white: #ffffff;
-
 $bg_btn: #495479;
 
 $bd_radius: 0.25rem;
+
+// Darkmode
+[data-theme="dark"] {
+  color: #3b0707;
+  --btn: #343c4f;
+  --bg: #000e21;
+}
+
+[data-theme="light"] {
+  --btn: #2270ff;
+  --bg: #024bc1;
+}
+
+$btn: var(--btn);
+$bg: var(--bg);
+//
 
 @mixin hideYScroll {
   overflow-y: scroll;
@@ -31,5 +45,16 @@ $bd_radius: 0.25rem;
 }
 
 @mixin boxShadow {
-  box-shadow: 1px 2px 2px #00000088;
+  box-shadow: 1px 1px 1px #00000088;
+}
+
+@mixin btnIcon {
+  color: $white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  width: 5.5rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

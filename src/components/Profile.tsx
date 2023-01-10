@@ -4,12 +4,12 @@ import Btn from "./Btn";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
-import { darkmodeContext } from "../contexts/DarkmodeContext";
+import { DarkmodeContext } from "../contexts/DarkmodeContext";
 
 export default function Profile() {
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
-  const { isDark } = useContext(darkmodeContext);
+  const { isDark } = useContext(DarkmodeContext);
 
   return (
     <div className={styles.Profile} onClick={() => navigate("./my")}>
@@ -18,7 +18,7 @@ export default function Profile() {
           <img src={profileImage} alt="profile" />
           <div className={styles.userName}>
             {user.username}
-            {/* TODO: darkmode design */}
+            {/* TODO: Darkmode design */}
             {isDark ? "-dark" : "-light"}
           </div>
         </div>

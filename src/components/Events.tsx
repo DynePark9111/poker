@@ -3,16 +3,16 @@ import robot from "../assets/icons/robot.webp";
 import duel from "../assets/icons/duel.webp";
 import { useNavigate } from "react-router-dom";
 import InfoIcon from "./InfoIcon";
-// import star from "../assets/icons/star.webp";
-// import trophy from "../assets/icons/trophy.webp";
-// import zone from "../assets/icons/zone.webp";
+import locks from "../assets/images/bg_lock.webp";
+import poker from "../assets/images/bg_poker.webp";
+import { useContext } from "react";
+import { AlertContext } from "../contexts/AlertContext";
 
 type EventProps = {
   icon: string;
   title: string;
   subtitle: string;
   time: string;
-  info: string;
   image: string;
   link: string;
   color?: string;
@@ -27,9 +27,8 @@ export default function Events() {
         title="JACKS OR BETTER"
         subtitle="5 card poker game"
         time="01H 02M"
-        info="TODO"
         link="poker"
-        image="https://pbs.twimg.com/media/FThIj9QWAAAFjE7.jpg"
+        image={poker}
         color="#A60528"
       />
       <Event
@@ -37,8 +36,7 @@ export default function Events() {
         title="title"
         subtitle="subtitle"
         time="1h 2m"
-        info="TODO"
-        link="poker"
+        link="x"
         image="image"
         color="red"
         available={false}
@@ -48,8 +46,7 @@ export default function Events() {
         title="title"
         subtitle="subtitle"
         time="1h 2m"
-        info="TODO"
-        link="poker"
+        link="x"
         image="image"
         color="red"
         available={false}
@@ -59,8 +56,7 @@ export default function Events() {
         title="title"
         subtitle="subtitle"
         time="1h 2m"
-        info="TODO"
-        link="poker"
+        link="x"
         image="image"
         color="red"
         available={false}
@@ -70,8 +66,7 @@ export default function Events() {
         title="title"
         subtitle="subtitle"
         time="1h 2m"
-        info="TODO"
-        link="poker"
+        link="x"
         image="image"
         color="red"
         available={false}
@@ -85,10 +80,8 @@ const disabled = {
   title: "LOCKED",
   subtitle: "currently unavailable...",
   time: "00H 00M",
-  info: "unavailabe",
   link: "none",
-  image:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqC9qNk6IVY87Fr3odfRdadng4eWfULTtjng&usqp=CAU",
+  image: locks,
 };
 
 function Event({
@@ -96,22 +89,28 @@ function Event({
   title,
   subtitle,
   time,
-  info,
   link,
   image,
   color = "purple",
   available = true,
 }: EventProps) {
+  const { addAlert } = useContext(AlertContext);
+
   const navigate = useNavigate();
+
+  let backgroundColor = available ? color : "#00000000";
+  let onClick = available
+    ? () => navigate(link)
+    : () => addAlert("Under development", "error");
 
   return (
     <div className={styles.Event} id={available ? "" : "disabled"}>
-      <InfoIcon />
-      <div className={styles.wrapper} onClick={() => navigate(link)}>
+      <InfoIcon open={link} />
+      <div className={styles.wrapper} onClick={onClick}>
         <div className={styles.time}>
           New event: {available ? time : disabled.time}
         </div>
-        <div className={styles.info} style={{ backgroundColor: color }}>
+        <div className={styles.info} style={{ backgroundColor }}>
           <div className={styles.icon}>
             <img
               src={available ? icon : disabled.icon}

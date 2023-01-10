@@ -5,8 +5,7 @@ import Background from "../Background";
 export default function AuthLayout() {
   return (
     <div className={styles.AuthLayout}>
-      <Background />
-      {/* <h1>DP</h1> */}
+      <Background color="#04122e" />
       <Outlet />
     </div>
   );

@@ -1,0 +1,21 @@
+@use "../__global" as *;
+
+.PayTable {
+  width: 100%;
+  @include textShadow;
+  color: $white;
+  max-width: 40rem;
+  text-align: center;
+  padding: 0 1rem;
+  border: 0.25rem solid #0b50c9;
+  background-color: #033896;
+  border-spacing: 1rem;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: $max_width4) {
+  .PayTable {
+    padding: 0 0.5rem;
+    font-size: 0.75rem;
+  }
+}

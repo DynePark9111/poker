@@ -46,14 +46,11 @@ export const UserContext = createContext({} as UserContextType);
 
 export default function UserContextProvider({ children }: childrenProps) {
   const [user, dispatch] = useReducer(userReducer, defaultUser, () => {
-    console.log("useContext ------------");
     const localUser = localStorage.getItem("user");
     return localUser ? JSON.parse(localUser) : defaultUser;
   });
 
   useEffect(() => {
-    console.log("useEffect ----");
-    console.log(user);
     localStorage.setItem("user", JSON.stringify(user));
   }, [user]);
 
@@ -103,10 +100,8 @@ export default function UserContextProvider({ children }: childrenProps) {
 
   async function handleGem(gem: number, user: userType) {
     if (user.username === "guest") {
-      console.log("guest");
       dispatch({ type: "PATCH_GEM", payload: { gem: user.gem + gem } });
     } else {
-      console.log("user");
       try {
         const res = await axios.patch(
           `${URL}/user/gem`,

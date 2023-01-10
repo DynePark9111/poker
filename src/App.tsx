@@ -10,11 +10,11 @@ import PokerPage from "./pages/PokerPage";
 import SignupPage from "./pages/auth/SignupPage";
 import Layout from "./components/layout/Layout";
 import { useContext } from "react";
-import { darkmodeContext } from "./contexts/DarkmodeContext";
+import { DarkmodeContext } from "./contexts/DarkmodeContext";
 import SettingsPage from "./pages/SettingsPage";
 
 export default function App() {
-  const { isDark } = useContext(darkmodeContext);
+  const { isDark } = useContext(DarkmodeContext);
   return (
     <div data-theme={isDark ? "dark" : "light"}>
       <Alert />

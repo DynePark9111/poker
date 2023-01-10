@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
-import { childrenProps, darkmodevContextType } from "../types/contextTypes";
+import { childrenProps, DarkmodeContextType } from "../types/contextTypes";
 
-export const darkmodeContext = createContext({} as darkmodevContextType);
+export const DarkmodeContext = createContext({} as DarkmodeContextType);
 
 export default function DarkmodeContextProvider({ children }: childrenProps) {
   const [isDark, setIsDark] = useState(getLocal());
@@ -25,8 +25,8 @@ export default function DarkmodeContextProvider({ children }: childrenProps) {
   }
 
   return (
-    <darkmodeContext.Provider value={{ isDark, toggleDarkmode }}>
+    <DarkmodeContext.Provider value={{ isDark, toggleDarkmode }}>
       {children}
-    </darkmodeContext.Provider>
+    </DarkmodeContext.Provider>
   );
 }
