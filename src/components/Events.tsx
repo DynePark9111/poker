@@ -25,7 +25,7 @@ export default function Events() {
         title="title"
         subtitle="subtitle"
         time="1h 2m"
-        link="x"
+        link=""
         image="image"
         color="red"
         available={false}
@@ -35,7 +35,7 @@ export default function Events() {
         title="title"
         subtitle="subtitle"
         time="1h 2m"
-        link="x"
+        link=""
         image="image"
         color="red"
         available={false}
@@ -45,7 +45,7 @@ export default function Events() {
         title="title"
         subtitle="subtitle"
         time="1h 2m"
-        link="x"
+        link=""
         image="image"
         color="red"
         available={false}
@@ -55,7 +55,7 @@ export default function Events() {
         title="title"
         subtitle="subtitle"
         time="1h 2m"
-        link="x"
+        link=""
         image="image"
         color="red"
         available={false}
