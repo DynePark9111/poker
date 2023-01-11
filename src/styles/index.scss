@@ -1,0 +1,37 @@
+@use "./__global" as *;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* normalize */
+a,
+ul,
+li {
+  text-decoration: none;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+
+// global
+
+#disabled {
+  filter: grayscale(1);
+}

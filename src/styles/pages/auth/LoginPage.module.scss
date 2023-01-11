@@ -1,0 +1,35 @@
+@use "../../__global" as *;
+
+.LoginPage {
+  form {
+    background-color: $white;
+    padding: 2rem;
+    border-radius: $bd_radius;
+    display: flex;
+    flex-direction: column;
+  }
+  .findpw {
+    cursor: pointer;
+    font-size: 0.75rem;
+    color: $black;
+    text-decoration: underline;
+    align-self: end;
+    padding: 0.25rem;
+  }
+  button[type="submit"] {
+    margin-top: 1rem;
+    width: 100%;
+    height: 50px;
+    border: none;
+    background-color: $blue;
+    color: $white;
+    border-radius: $bd_radius;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    &:disabled {
+      filter: grayscale(1);
+      pointer-events: none;
+    }
+  }
+}

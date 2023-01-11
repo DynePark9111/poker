@@ -1,0 +1,33 @@
+@use "./__global" as *;
+$hover: #383838;
+
+.FormInput {
+  display: flex;
+  flex-direction: column;
+  max-width: 20rem;
+  label {
+    font-size: 0.75rem;
+    color: $hover;
+  }
+  input {
+    padding: 1rem 0.5rem;
+    margin: 0.5rem 0 0;
+    border-radius: 5px;
+    border: 1px solid $hover;
+    &.blur:invalid:not(:focus) {
+      border: 1px solid $red;
+    }
+    &.blur:invalid:not(:focus) ~ span {
+      opacity: 1;
+      height: auto;
+    }
+  }
+  span {
+    font-size: 0.75rem;
+    padding: 0.25rem;
+    color: $red;
+    opacity: 0;
+    height: 0;
+    word-break: keep-all;
+  }
+}

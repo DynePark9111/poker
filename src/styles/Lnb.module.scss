@@ -1,0 +1,32 @@
+@use "./__global" as *;
+
+.Lnb {
+  z-index: 1;
+  position: fixed;
+  inset: 0.5rem 1rem auto 0.5rem;
+  // inset: -0.25rem -0.25rem auto -0.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  .btn {
+    @include btnIcon;
+  }
+  .title {
+    transform: translateY(-0.5rem);
+    font-size: 2.5rem;
+    color: $white;
+  }
+}
+@media screen and (max-width: $max_width3) {
+  .Lnb {
+    .btn {
+      font-size: 1.5rem;
+      padding: 0.25rem 1rem;
+    }
+    .title {
+      font-size: 2rem;
+      color: $white;
+    }
+  }
+}

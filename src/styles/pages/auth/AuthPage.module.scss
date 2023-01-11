@@ -1,0 +1,59 @@
+@use "../../__global" as *;
+
+.AuthPage {
+  height: 100%;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  .text {
+    white-space: pre-wrap;
+    width: clamp(6rem, 80vw, 30rem);
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+    white-space: pre-line;
+    word-break: keep-all;
+  }
+  button {
+    color: white;
+    width: clamp(6rem, 80vw, 30rem);
+    border: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    border-radius: 0.25rem;
+    margin: 0;
+    cursor: pointer;
+    font-weight: bold;
+    background: $blue;
+    font-size: 1rem;
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      position: absolute;
+      left: 1rem;
+    }
+  }
+  .signup {
+    text-align: center;
+    display: flex;
+    gap: 3rem;
+    font-weight: bold;
+    margin: 1rem;
+    word-break: keep-all;
+  }
+}
+
+// @media screen and (max-width: $max_width4) {
+//   .AuthPage {
+//     .text {
+//       font-size: 1rem;
+//     }
+//   }
+// }

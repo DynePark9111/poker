@@ -1,0 +1,71 @@
+@use "./__global" as *;
+
+@mixin overlay() {
+  transform: rotate(10deg);
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: -1;
+}
+
+.Background {
+  pointer-events: none;
+  z-index: -9999;
+  $duration_bg: 120s;
+  $position: 2400px;
+  .bg {
+    transition: background-color 1s;
+    @include overlay;
+    opacity: 90%;
+    z-index: -9998;
+    background-color: $bg;
+  }
+  .icon {
+    transition: background-color 1s;
+    @include overlay;
+    z-index: -9999;
+    background-color: $bg;
+
+    -webkit-animation: $duration_bg scroll infinite linear;
+    -moz-animation: $duration_bg scroll infinite linear;
+    -o-animation: $duration_bg scroll infinite linear;
+    -ms-animation: $duration_bg scroll infinite linear;
+    animation: $duration_bg scroll infinite linear;
+  }
+
+  .gradient {
+    @include overlay;
+  }
+
+  @-webkit-keyframes scroll {
+    100% {
+      background-position: $position (-($position));
+    }
+  }
+
+  @-moz-keyframes scroll {
+    100% {
+      background-position: $position (-($position));
+    }
+  }
+
+  @-o-keyframes scroll {
+    100% {
+      background-position: $position (-($position));
+    }
+  }
+
+  @-ms-keyframes scroll {
+    100% {
+      background-position: $position (-($position));
+    }
+  }
+
+  @keyframes scroll {
+    100% {
+      background-position: $position (-($position));
+    }
+  }
+}

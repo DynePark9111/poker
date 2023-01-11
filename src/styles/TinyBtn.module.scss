@@ -1,0 +1,31 @@
+@use "./__global" as *;
+
+.TinyBtn {
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+
+  .icon {
+    position: absolute;
+    top: -0.7rem;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+
+    img {
+      width: 2rem;
+    }
+  }
+  .wrapper {
+    margin: 1rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    width: 4rem;
+    aspect-ratio: 2.5 /1;
+  }
+}
