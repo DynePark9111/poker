@@ -1,9 +1,13 @@
+import { useContext } from "react";
+import { PokerContext } from "../../contexts/PokerContext";
 import styles from "../../styles/poker/SmallCard.module.scss";
 import { GAME_STATUS } from "../../types/poker.types";
 
-export default function SmallCard({ card, status }: CardProps) {
+export default function SmallCard({ card }: CardProps) {
+  const { status } = useContext(PokerContext);
   let isStart = status === GAME_STATUS.START;
   let isEnd = status === GAME_STATUS.END;
+
   return (
     <div
       className={`${styles.SmallCard} ${isEnd ? styles.noClick : ""}`}
@@ -21,5 +25,4 @@ export default function SmallCard({ card, status }: CardProps) {
 
 type CardProps = {
   card: string;
-  status: number;
 };

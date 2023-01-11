@@ -18,16 +18,12 @@ export default function Menu() {
 
   return (
     <div className={styles.Menu}>
-      <div
-        className={styles.menuBtn}
-        onClick={() => setIsOpen((prev) => !prev)}
-      >
-        <Btn>
-          <div className={styles.faBars}>
-            <FaBars />
-          </div>
-        </Btn>
-      </div>
+      <Btn onClick={() => setIsOpen((prev) => !prev)}>
+        {/* TODO : change icon */}
+        <div className={styles.faBars}>
+          <FaBars />
+        </div>
+      </Btn>
       {isOpen && <MenuItems />}
     </div>
   );

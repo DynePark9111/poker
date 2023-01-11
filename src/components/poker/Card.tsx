@@ -1,7 +1,11 @@
+import { useContext } from "react";
+import { PokerContext } from "../../contexts/PokerContext";
 import styles from "../../styles/poker/Card.module.scss";
 import { GAME_STATUS } from "../../types/poker.types";
 
-export default function Card({ card, onClick, hold, status }: CardProps) {
+export default function Card({ card, onClick, hold }: CardProps) {
+  const { status } = useContext(PokerContext);
+
   let iconCount = createEmptyArray(card[0]);
   let isStart = status === GAME_STATUS.START;
   let isEnd = status === GAME_STATUS.END;
@@ -33,7 +37,6 @@ type CardProps = {
   card: string;
   onClick?: any;
   hold?: boolean;
-  status: number;
 };
 
 function createEmptyArray(x: string) {

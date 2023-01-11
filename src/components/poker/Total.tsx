@@ -10,9 +10,11 @@ import { GAME_STATUS } from "../../types/poker.types";
 import PayTable from "./PayTable";
 import Window from "../Window";
 import { ModalContext } from "../../contexts/ModalContext";
+import { PokerContext } from "../../contexts/PokerContext";
 
-export default function Total({ total, status, spend }: TotalProps) {
+export default function Total({ total, spend }: TotalProps) {
   const { activeModal, setActiveModal } = useContext(ModalContext);
+  const { status } = useContext(PokerContext);
   const [earned, setEarned] = useState(0);
   const [spent, setSpent] = useState(0);
   const [rounds, setRounds] = useState(0);
@@ -67,5 +69,4 @@ export default function Total({ total, status, spend }: TotalProps) {
 type TotalProps = {
   total: number;
   spend: number;
-  status: number;
 };
