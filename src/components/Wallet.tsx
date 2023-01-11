@@ -9,8 +9,8 @@ export default function Wallet() {
 
   return (
     <div className={styles.Wallet}>
-      <WalletItem image={purpleGem} amount={user.gem} />
       <WalletItem image={greenGem} amount={user.cash} />
+      <WalletItem image={purpleGem} amount={user.gem} />
     </div>
   );
 }

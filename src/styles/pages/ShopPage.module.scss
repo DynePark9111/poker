@@ -46,6 +46,7 @@
 }
 
 .SmallContainer {
+  cursor: pointer;
   @include boxShadow;
   width: 100%;
   height: 100%;

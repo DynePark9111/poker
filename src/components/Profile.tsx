@@ -10,7 +10,7 @@ export default function Profile() {
   const { user } = useContext(UserContext);
 
   return (
-    <div className={styles.Profile} onClick={() => navigate("./my")}>
+    <div className={styles.Profile} onClick={() => navigate("/my")}>
       <Btn>
         <div className={styles.wrapper}>
           <img src={profileImage} alt="profile" />

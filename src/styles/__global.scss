@@ -16,6 +16,7 @@ $bg_btn: #495479;
 $bd_radius: 0.25rem;
 
 // Darkmode
+// TODO : dark, light mode color. current version is darkmode.
 [data-theme="dark"] {
   color: #3b0707;
   --btn: #343c4f;
@@ -23,7 +24,8 @@ $bd_radius: 0.25rem;
 }
 
 [data-theme="light"] {
-  --btn: #2270ff;
+  // --btn: #2270ff;
+  --btn: #343c4f;
   --bg: #024bc1;
 }
 

@@ -14,6 +14,7 @@ $width: 300px;
   justify-content: flex-end;
   overflow: hidden;
   pointer-events: none;
+
   .Message {
     border-radius: $bd_radius;
     text-align: center;
@@ -24,8 +25,9 @@ $width: 300px;
     width: $width;
     height: 50px;
     cursor: pointer;
-    animation: Enter 600ms ease-in-out, 600ms Exit 6000ms ease-in-out forwards;
+    animation: Enter 600ms ease-in-out, 600ms Exit 2000ms ease-in-out forwards;
     pointer-events: all;
+    opacity: 0.9;
     &.error {
       background-color: $red;
     }

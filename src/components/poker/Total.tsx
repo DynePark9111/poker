@@ -31,8 +31,10 @@ export default function Total({ total, status, spend }: TotalProps) {
         className={styles.Total}
         onClick={() => setActiveModal("pokerStats")}
       >
-        <ListItem label="EARNED" icon={info} count={earned} />
-        {/* <ListItem label="TOTAL SPENT" icon={gems} count={spent} /> */}
+        <ul>
+          <ListItem label="EARNED" icon={info} count={earned} />
+          {/* <ListItem label="TOTAL SPENT" icon={gems} count={spent} /> */}
+        </ul>
         <div
           className={styles.ribbon}
           id={status === GAME_STATUS.END ? styles.show : styles.hide}

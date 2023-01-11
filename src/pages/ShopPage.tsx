@@ -1,7 +1,8 @@
 import styles from "../styles/pages/ShopPage.module.scss";
 import Lnb from "../components/Lnb";
 import Background from "../components/Background";
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
+import { AlertContext } from "../contexts/AlertContext";
 
 export default function ShopPage() {
   return (
@@ -13,6 +14,7 @@ export default function ShopPage() {
           {SHOP_GEMS.map((gem) => {
             return (
               <SmallContainer
+                key={gem.price}
                 price={gem.price}
                 amount={gem.amount}
                 image={gem.image}
@@ -36,8 +38,12 @@ function LargeContainer({ children, header }: LargeContainerProps) {
 }
 
 function SmallContainer({ image, amount, price, tag }: SmallContainer) {
+  const { addAlert } = useContext(AlertContext);
   return (
-    <div className={styles.SmallContainer}>
+    <div
+      className={styles.SmallContainer}
+      onClick={() => addAlert("Shop not available", "error")}
+    >
       <div className={styles.imageWrapper}>
         <img src={image} alt="gems" />
         {tag && <div className={styles.tag}>{tag}</div>}

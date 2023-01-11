@@ -12,6 +12,7 @@ import confetti from "../assets/lottie/confetti.json";
 import LottieImage from "../components/LottieImage";
 import { AlertContext } from "../contexts/AlertContext";
 import { UserContext } from "../contexts/UserContext";
+import Profile from "../components/Profile";
 
 export default function PokerPage() {
   const URL = import.meta.env.VITE_URL;
@@ -121,6 +122,7 @@ export default function PokerPage() {
   return (
     <div className={styles.PokerPage}>
       <Background color="#005f00" />
+      <Profile />
       <Menu />
       <Wallet />
       <PokerTable
@@ -137,6 +139,8 @@ export default function PokerPage() {
       />
       <PlayBtn
         multi={multi}
+        multiDecks={multiDecks}
+        setMultiDecks={setMultiDecks}
         status={gameStatus()}
         playOnClick={playOnClick}
         multiOnClick={multiOnClick}

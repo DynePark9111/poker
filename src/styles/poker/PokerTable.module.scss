@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem 1rem 5rem 1rem;
+  padding: 5rem 1rem 5rem 1rem;
   .MultiTable {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
@@ -72,5 +72,11 @@
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: $max_width3) {
+  .PokerTable {
+    padding-top: 3.5rem;
   }
 }

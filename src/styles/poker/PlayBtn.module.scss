@@ -5,23 +5,19 @@
   bottom: 1rem;
   right: 1rem;
   display: flex;
-  gap: 0.5rem;
+  gap: 0.25rem;
+  margin-left: 10rem;
+  justify-content: flex-end;
   .play,
-  .multi {
+  .multi,
+  .sort {
     display: flex;
     justify-content: center;
     align-items: center;
     color: $white;
     font-weight: bold;
-    font-size: calc(0.75rem + 4vmin);
+    font-size: calc(0.25rem + 4vmin);
     width: 20vmin;
-    min-width: 6rem;
     aspect-ratio: 2.5 /1;
-  }
-  .multi {
-    min-width: 3rem;
-    width: 10vmin;
-    font-size: calc(0.75rem + 3vmin);
-    position: relative;
   }
 }

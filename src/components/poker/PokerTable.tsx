@@ -35,7 +35,7 @@ function MultiTable({ multiDecks, status }: MultiTableProps) {
       {multiDecks.map((multiDeck: mainCardsType, i: number) => {
         return (
           // TODO: fix key
-          <div className={styles.smallTable}>
+          <div className={styles.smallTable} key={multiDeck.toString() + i}>
             <Result status={status} cards={multiDeck} />
             {multiDeck.cards.map((card: string) => {
               return <SmallCard key={card} card={card} status={status} />;
