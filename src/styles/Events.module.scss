@@ -8,8 +8,9 @@
   margin: auto;
   grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
   gap: 1rem;
-  padding: 6rem 1rem 1rem;
+  padding: 10rem 1rem 0;
   align-content: flex-start;
+  z-index: 1;
   @include hideYScroll;
 
   .Event {

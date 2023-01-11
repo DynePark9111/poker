@@ -16,6 +16,7 @@ import { FaCog } from "react-icons/fa";
 import ListItem from "../components/ListItem";
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
+import { AlertContext } from "../contexts/AlertContext";
 
 export default function MyPage() {
   return (
@@ -38,10 +39,15 @@ function MyPageContent() {
 
 function MyPageTop() {
   const { user } = useContext(UserContext);
+  const { addAlert } = useContext(AlertContext);
+
+  function underDev() {
+    addAlert("Under development", "error");
+  }
 
   return (
     <div className={styles.top}>
-      <div className={styles.icon}>
+      <div className={styles.icon} onClick={underDev}>
         <div className={styles.cog}>
           <FaCog />
         </div>
@@ -49,7 +55,7 @@ function MyPageTop() {
         <div className={styles.userId}>{user._id}</div>
       </div>
 
-      <div className={styles.userName}>
+      <div className={styles.userName} onClick={underDev}>
         <div className={styles.cog}>
           <FaCog />
         </div>
@@ -58,7 +64,7 @@ function MyPageTop() {
         </Btn>
       </div>
 
-      <div className={styles.nameColor}>
+      <div className={styles.nameColor} onClick={underDev}>
         <div className={styles.cog}>
           <FaCog />
         </div>
@@ -75,14 +81,14 @@ function MyPageTop() {
 function MyPageBottom() {
   return (
     <ul className={styles.bottom}>
-      <ListItem label="HIGHEST TROPIES" icon={trophy} count={99} />
-      <ListItem label="HIGHEST RANKS" icon={rank} count={1} />
-      <ListItem label="STARS COLLECTED" icon={star} count={1213} />
-      <ListItem label="GEMS COLLECTED" icon={gems} count={112312} />
-      <ListItem label="GAMES PLAYED" icon={duel} count={121233} />
-      <ListItem label="ZONE PROTECTED" icon={zone} count={112323} />
-      <ListItem label="ROBOT A DEFEATED" icon={robot} count={98346} />
-      <ListItem label="ROBOT B DEFEATED" icon={robot2} count={12312} />
+      <ListItem label="HIGHEST TROPIES" icon={trophy} count={1} />
+      <ListItem label="HIGHEST RANKS" icon={rank} count={123} />
+      <ListItem label="STARS COLLECTED" icon={star} count={4567} />
+      <ListItem label="GEMS COLLECTED" icon={gems} count={89012} />
+      <ListItem label="GAMES PLAYED" icon={duel} count={999999} />
+      <ListItem label="ZONE PROTECTED" icon={zone} count={1234567} />
+      <ListItem label="ROBOT A DEFEATED" icon={robot} count={0} />
+      <ListItem label="ROBOT B DEFEATED" icon={robot2} count={0} />
       <ListItem label="ROBOT C DEFEATED" icon={robot3} count={0} />
     </ul>
   );

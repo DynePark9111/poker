@@ -35,10 +35,7 @@ export default function SettingsPage() {
         </Btn>
       </section>
       <Modal isOpen={activeModal === "reset"}>
-        <Confirm
-          question="Do you wish to erase all personal settings?"
-          onClick={confirm}
-        />
+        <Confirm question="Delete all personal settings?" onClick={confirm} />
       </Modal>
     </div>
   );

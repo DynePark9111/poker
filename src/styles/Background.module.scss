@@ -16,12 +16,14 @@
   $duration_bg: 120s;
   $position: 2400px;
   .bg {
+    transition: background-color 1s;
     @include overlay;
     opacity: 90%;
     z-index: -9998;
     background-color: $bg;
   }
   .icon {
+    transition: background-color 1s;
     @include overlay;
     z-index: -9999;
     background-color: $bg;

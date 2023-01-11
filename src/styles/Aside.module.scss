@@ -1,8 +1,9 @@
 @use "./__global" as *;
 
 .Aside {
+  z-index: 1;
   position: fixed;
-  inset: 20% 0 auto 0;
+  inset: 10rem 0 auto 0;
   display: flex;
   justify-content: space-between;
   padding: 0 1rem;

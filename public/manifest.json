@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "short_name": "DP",
+  "name": "DP GAME",
+  "author": "Dyne Park",
+  "description": "Non-profit, blazingly fast, 100% natural, state-of-the-art, next-generation game website.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "theme_color": "#024bc1",
+  "background_color": "#ffffff"
+}

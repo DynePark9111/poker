@@ -1,10 +1,10 @@
 @use "./__global" as *;
 
 .Lnb {
-  z-index: 9;
+  z-index: 1;
   position: fixed;
-  // inset: -0.25rem -0.25rem auto -0.25rem;
   inset: 0.5rem 1rem auto 0.5rem;
+  // inset: -0.25rem -0.25rem auto -0.25rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,6 +13,7 @@
     @include btnIcon;
   }
   .title {
+    transform: translateY(-0.5rem);
     font-size: 2.5rem;
     color: $white;
   }
