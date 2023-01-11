@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { childrenProps, DarkmodeContextType } from "../types/contextTypes";
+import { childrenProps, DarkmodeContextType } from "../types/context.types";
 
 export const DarkmodeContext = createContext({} as DarkmodeContextType);
 

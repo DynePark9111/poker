@@ -1,28 +1,13 @@
 import styles from "../../styles/poker/PokerTable.module.scss";
 import Card from "./Card";
-import { COLOR_TABLE, GAME_STATUS, PAY_TABLE, RANK } from "../../types/types";
+import {
+  COLOR_TABLE,
+  GAME_STATUS,
+  PAY_TABLE,
+  RANK,
+} from "../../types/poker.types";
 import { mainCardsType } from "../../pages/PokerPage";
 import SmallCard from "./SmallCard";
-
-type PokerTableProps = {
-  mainCards: mainCardsType;
-  toHold: string[];
-  setToHold: any;
-  status: number;
-  multiDecks: mainCardsType[];
-};
-
-type MultiTableProps = {
-  multiDecks: mainCardsType[];
-  status: number;
-};
-
-type MainTableProps = {
-  mainCards: mainCardsType;
-  toHold: string[];
-  setToHold: any;
-  status: number;
-};
 
 export default function PokerTable({
   toHold,
@@ -88,14 +73,8 @@ function MainTable({ mainCards, toHold, setToHold, status }: MainTableProps) {
   );
 }
 
-type ResultProps = {
-  status: number;
-  cards: mainCardsType;
-};
-
 function Result({ status, cards }: ResultProps) {
   let isEnd = status === GAME_STATUS.END;
-  // TODO change color
   return (
     <div
       className={styles.Result}
@@ -106,3 +85,28 @@ function Result({ status, cards }: ResultProps) {
     </div>
   );
 }
+
+type PokerTableProps = {
+  mainCards: mainCardsType;
+  toHold: string[];
+  setToHold: any;
+  status: number;
+  multiDecks: mainCardsType[];
+};
+
+type MultiTableProps = {
+  multiDecks: mainCardsType[];
+  status: number;
+};
+
+type MainTableProps = {
+  mainCards: mainCardsType;
+  toHold: string[];
+  setToHold: any;
+  status: number;
+};
+
+type ResultProps = {
+  status: number;
+  cards: mainCardsType;
+};

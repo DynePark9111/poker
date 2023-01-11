@@ -45,12 +45,12 @@
     justify-content: center;
     align-items: center;
     gap: 0.25rem;
-    padding: 0.5rem 1rem;
+    padding: 2.5rem 1rem 1rem;
     position: relative;
   }
   .Result {
     color: $white;
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,32 +74,3 @@
     opacity: 1;
   }
 }
-
-// @media screen and (max-width: 250rem) {
-//   .PokerTable {
-//     .MultiTable {
-//       .smallTable {
-//         min-width: 20%;
-//       }
-//     }
-//   }
-// }
-// @media screen and (max-width: 120rem) {
-//   .PokerTable {
-//     .MultiTable {
-//       .smallTable {
-//         min-width: 40%;
-//       }
-//     }
-//   }
-// }
-
-// @media screen and (max-width: 60rem) {
-//   .PokerTable {
-//     .MultiTable {
-//       .smallTable {
-//         min-width: 80%;
-//       }
-//     }
-//   }
-// }

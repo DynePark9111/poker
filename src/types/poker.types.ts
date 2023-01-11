@@ -42,16 +42,16 @@ export const PROBABILITY_TABLE = {
 
 export const COLOR_TABLE = {
   "0": "#ffffff00",
-  "1": "#000000",
-  "2": "#442F8A",
-  "3": "#EE1745",
-  "4": "#02cd71",
-  "5": "#DE2DFC",
-  "6": "#01BBFF",
-  "7": "#fe9613",
-  "8": "#8489E3",
-  "9": "#E75507",
-  "10": "#A8A9AB",
+  "1": "#000000dd",
+  "2": "#442F8Add",
+  "3": "#EE1745dd",
+  "4": "#02cd71dd",
+  "5": "#DE2DFCdd",
+  "6": "#01BBFFdd",
+  "7": "#fe9613dd",
+  "8": "#8489E3dd",
+  "9": "#E75507dd",
+  "10": "#A8A9ABdd",
 } as const;
 
 export type RANK_TYPE = keyof typeof RANK;

@@ -1,12 +1,5 @@
 import styles from "../../styles/poker/Card.module.scss";
-import { GAME_STATUS } from "../../types/types";
-
-type CardProps = {
-  card: string;
-  onClick?: any;
-  hold?: boolean;
-  status: number;
-};
+import { GAME_STATUS } from "../../types/poker.types";
 
 export default function Card({ card, onClick, hold, status }: CardProps) {
   let iconCount = createEmptyArray(card[0]);
@@ -34,14 +27,21 @@ export default function Card({ card, onClick, hold, status }: CardProps) {
       </div>
     </div>
   );
+}
 
-  function createEmptyArray(x: string) {
-    if (x === "A" || x === "J" || x === "Q" || x === "K") {
-      return [...Array(1).keys()];
-    } else if (x === "T") {
-      return [...Array(10).keys()];
-    } else {
-      return [...Array(Number(x)).keys()];
-    }
+type CardProps = {
+  card: string;
+  onClick?: any;
+  hold?: boolean;
+  status: number;
+};
+
+function createEmptyArray(x: string) {
+  if (x === "A" || x === "J" || x === "Q" || x === "K") {
+    return [...Array(1).keys()];
+  } else if (x === "T") {
+    return [...Array(10).keys()];
+  } else {
+    return [...Array(Number(x)).keys()];
   }
 }

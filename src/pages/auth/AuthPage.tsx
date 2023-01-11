@@ -8,7 +8,7 @@ export default function AuthPage() {
       <div className={styles.text}>
         DP
         <br />
-        non-profit hobby website
+        free game website
       </div>
       <Link to="/auth/login">
         <button>

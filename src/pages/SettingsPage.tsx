@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Background from "../components/Background";
 import Btn from "../components/Btn";
 import Lnb from "../components/Lnb";
@@ -15,7 +15,7 @@ export default function SettingsPage() {
   const { activeModal, setActiveModal } = useContext(ModalContext);
   const { addAlert } = useContext(AlertContext);
 
-  function onClickYes() {
+  function confirm() {
     clearCookie();
     clearLocalStorage();
     addAlert("Cookie, local storage cleared", "success");
@@ -37,17 +37,12 @@ export default function SettingsPage() {
       <Modal isOpen={activeModal === "reset"}>
         <Confirm
           question="Do you wish to erase all personal settings?"
-          onClick={onClickYes}
+          onClick={confirm}
         />
       </Modal>
     </div>
   );
 }
-
-type confrirmProps = {
-  question: string;
-  onClick: () => void;
-};
 
 function Confirm({ question, onClick }: confrirmProps) {
   const { setActiveModal } = useContext(ModalContext);
@@ -66,3 +61,8 @@ function Confirm({ question, onClick }: confrirmProps) {
     </div>
   );
 }
+
+type confrirmProps = {
+  question: string;
+  onClick: () => void;
+};

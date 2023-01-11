@@ -2,14 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import styles from "../styles/Alert.module.scss";
 import { AlertContext } from "../contexts/AlertContext";
 
-type MessageProps = {
-  message: {
-    id: string;
-    message: string;
-    status: "normal" | "success" | "warning" | "error";
-  };
-};
-
 export default function Alert() {
   const { alerts } = useContext(AlertContext);
 
@@ -25,6 +17,7 @@ export default function Alert() {
 function Message({ message }: MessageProps) {
   const [exit, setExit] = useState(false);
   const { deleteAlert } = useContext(AlertContext);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       deleteAlert(message.id);
@@ -43,3 +36,11 @@ function Message({ message }: MessageProps) {
     </div>
   );
 }
+
+type MessageProps = {
+  message: {
+    id: string;
+    message: string;
+    status: "normal" | "success" | "warning" | "error";
+  };
+};

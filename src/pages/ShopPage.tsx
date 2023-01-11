@@ -2,39 +2,29 @@ import styles from "../styles/pages/ShopPage.module.scss";
 import Lnb from "../components/Lnb";
 import Background from "../components/Background";
 import { ReactNode } from "react";
-import gems1 from "../assets/icons/gems1.webp";
-import gems2 from "../assets/icons/gems2.webp";
-import gems3 from "../assets/icons/gems3.webp";
 
 export default function ShopPage() {
-  const bgPurple = ``;
   return (
-    <>
+    <div className={styles.ShopPage}>
       <Background />
       <Lnb title="Shop" />
-      <div className={styles.ShopPage}>
+      <div className={styles.shop}>
         <LargeContainer header="GREEN PACKS">
-          <SmallContainer price={3} amount={30} image={gems1} />
-          <SmallContainer price={7} amount={80} image={gems1} />
-          <SmallContainer price={15} amount={170} image={gems2} tag="POPULAR" />
-          <SmallContainer price={30} amount={350} image={gems2} />
-          <SmallContainer price={90} amount={950} image={gems3} />
-          <SmallContainer
-            price={150}
-            amount={2000}
-            image={gems3}
-            tag="BEST VALUE"
-          />
+          {SHOP_GEMS.map((gem) => {
+            return (
+              <SmallContainer
+                price={gem.price}
+                amount={gem.amount}
+                image={gem.image}
+                tag={gem.tag}
+              />
+            );
+          })}
         </LargeContainer>
       </div>
-    </>
+    </div>
   );
 }
-
-type LargeContainerProps = {
-  children: ReactNode;
-  header: string;
-};
 
 function LargeContainer({ children, header }: LargeContainerProps) {
   return (
@@ -44,13 +34,6 @@ function LargeContainer({ children, header }: LargeContainerProps) {
     </div>
   );
 }
-
-type SmallContainer = {
-  image: string;
-  amount: number;
-  price: number;
-  tag?: string;
-};
 
 function SmallContainer({ image, amount, price, tag }: SmallContainer) {
   return (
@@ -65,11 +48,33 @@ function SmallContainer({ image, amount, price, tag }: SmallContainer) {
   );
 }
 
-// function Slider() {
-//   return (
-//     <div className={styles.Slider}>
-//       <header>{header}</header>
-//       <section>{children}</section>
-//     </div>
-//   );
-// }
+type LargeContainerProps = {
+  children: ReactNode;
+  header: string;
+};
+
+type SmallContainer = {
+  image: string;
+  amount: number;
+  price: number;
+  tag?: string;
+};
+
+const SHOP_GEMS: SmallContainer[] = [
+  { price: 3, amount: 30, image: "/src/assets/icons/gems1.webp" },
+  { price: 7, amount: 80, image: "/src/assets/icons/gems1.webp" },
+  {
+    price: 15,
+    amount: 170,
+    image: "/src/assets/icons/gems2.webp",
+    tag: "POPULAR",
+  },
+  { price: 30, amount: 350, image: "/src/assets/icons/gems2.webp" },
+  { price: 90, amount: 950, image: "/src/assets/icons/gems3.webp" },
+  {
+    price: 150,
+    amount: 2000,
+    image: "/src/assets/icons/gems3.webp",
+    tag: "BEST VALUE",
+  },
+];

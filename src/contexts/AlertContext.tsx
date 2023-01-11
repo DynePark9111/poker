@@ -5,7 +5,7 @@ import {
   childrenProps,
   AlertContextType,
   status,
-} from "../types/contextTypes";
+} from "../types/context.types";
 
 const defaultValue: alertType[] = [];
 

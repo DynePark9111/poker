@@ -6,26 +6,16 @@ import Modal from "../Modal";
 import gems from "../../assets/icons/gems.webp";
 import gem from "../../assets/icons/gem_purple.webp";
 import star from "../../assets/icons/star.webp";
-import { GAME_STATUS } from "../../types/types";
+import { GAME_STATUS } from "../../types/poker.types";
 import PayTable from "./PayTable";
 import Window from "../Window";
 import { ModalContext } from "../../contexts/ModalContext";
 
-type TotalProps = {
-  total: number;
-  spend: number;
-  status: number;
-};
-
 export default function Total({ total, status, spend }: TotalProps) {
+  const { activeModal, setActiveModal } = useContext(ModalContext);
   const [earned, setEarned] = useState(0);
   const [spent, setSpent] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
   const [rounds, setRounds] = useState(0);
-
-  function toggleModal() {
-    setIsOpen((prev) => !prev);
-  }
 
   useEffect(() => {
     setEarned((prev) => prev + total);
@@ -34,7 +24,7 @@ export default function Total({ total, status, spend }: TotalProps) {
       setRounds((prev) => prev + 1);
     }
   }, [total, spend]);
-  const { activeModal, setActiveModal } = useContext(ModalContext);
+
   return (
     <>
       <div
@@ -71,3 +61,9 @@ export default function Total({ total, status, spend }: TotalProps) {
     );
   }
 }
+
+type TotalProps = {
+  total: number;
+  spend: number;
+  status: number;
+};

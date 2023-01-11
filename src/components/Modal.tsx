@@ -3,11 +3,6 @@ import { ReactNode } from "react";
 import { ModalContext } from "../contexts/ModalContext";
 import styles from "../styles/Modal.module.scss";
 
-type ModalProps = {
-  isOpen: boolean;
-  children: ReactNode;
-};
-
 export default function Modal({ isOpen, children }: ModalProps) {
   const { setActiveModal } = useContext(ModalContext);
 
@@ -18,3 +13,8 @@ export default function Modal({ isOpen, children }: ModalProps) {
     </div>
   );
 }
+
+type ModalProps = {
+  isOpen: boolean;
+  children: ReactNode;
+};

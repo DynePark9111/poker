@@ -1,10 +1,5 @@
 import styles from "../../styles/poker/SmallCard.module.scss";
-import { GAME_STATUS } from "../../types/types";
-
-type CardProps = {
-  card: string;
-  status: number;
-};
+import { GAME_STATUS } from "../../types/poker.types";
 
 export default function SmallCard({ card, status }: CardProps) {
   let isStart = status === GAME_STATUS.START;
@@ -23,3 +18,8 @@ export default function SmallCard({ card, status }: CardProps) {
     </div>
   );
 }
+
+type CardProps = {
+  card: string;
+  status: number;
+};

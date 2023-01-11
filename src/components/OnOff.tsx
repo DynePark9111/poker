@@ -1,12 +1,6 @@
 import styles from "../styles/OnOff.module.scss";
 import Btn from "./Btn";
 
-type OnOffProps = {
-  title?: string;
-  isOn?: boolean;
-  toggle?: () => void;
-};
-
 export default function OnOff({ title = ":)", toggle, isOn }: OnOffProps) {
   return (
     <div className={styles.OnOff} onClick={toggle}>
@@ -22,3 +16,9 @@ export default function OnOff({ title = ":)", toggle, isOn }: OnOffProps) {
     </div>
   );
 }
+
+type OnOffProps = {
+  title?: string;
+  isOn?: boolean;
+  toggle?: () => void;
+};

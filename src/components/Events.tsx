@@ -8,26 +8,6 @@ import poker from "../assets/images/bg_poker.webp";
 import { useContext } from "react";
 import { AlertContext } from "../contexts/AlertContext";
 
-type EventProps = {
-  icon: string;
-  title: string;
-  subtitle: string;
-  time: string;
-  image: string;
-  link: string;
-  color?: string;
-  available?: boolean;
-};
-
-const disabled = {
-  icon: robot,
-  title: "LOCKED",
-  subtitle: "currently unavailable...",
-  time: "00H 00M",
-  link: "none",
-  image: locks,
-};
-
 export default function Events() {
   return (
     <div className={styles.Events}>
@@ -95,18 +75,17 @@ function Event({
   available = true,
 }: EventProps) {
   const { addAlert } = useContext(AlertContext);
-
   const navigate = useNavigate();
-
   let backgroundColor = available ? color : "#00000000";
-  let onClick = available
+
+  let navigateOrAlert = available
     ? () => navigate(link)
     : () => addAlert("Under development", "error");
 
   return (
     <div className={styles.Event} id={available ? "" : "disabled"}>
       <InfoIcon open={link} />
-      <div className={styles.wrapper} onClick={onClick}>
+      <div className={styles.wrapper} onClick={navigateOrAlert}>
         <div className={styles.time}>
           New event: {available ? time : disabled.time}
         </div>
@@ -135,3 +114,23 @@ function Event({
     </div>
   );
 }
+
+type EventProps = {
+  icon: string;
+  title: string;
+  subtitle: string;
+  time: string;
+  image: string;
+  link: string;
+  color?: string;
+  available?: boolean;
+};
+
+const disabled = {
+  icon: robot,
+  title: "LOCKED",
+  subtitle: "currently unavailable...",
+  time: "00H 00M",
+  link: "none",
+  image: locks,
+};

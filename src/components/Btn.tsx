@@ -1,13 +1,6 @@
 import { ReactNode } from "react";
 import styles from "../styles/Btn.module.scss";
 
-type BtnProps = {
-  children: ReactNode;
-  color?: string;
-  onClick?: any;
-  disabled?: boolean;
-};
-
 export default function Btn({
   children,
   color,
@@ -27,3 +20,10 @@ export default function Btn({
     </button>
   );
 }
+
+type BtnProps = {
+  children: ReactNode;
+  color?: string;
+  onClick?: any;
+  disabled?: boolean;
+};

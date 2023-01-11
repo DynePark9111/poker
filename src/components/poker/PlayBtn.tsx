@@ -1,13 +1,6 @@
 import styles from "../../styles/poker/PlayBtn.module.scss";
 import Btn from "../Btn";
 
-type PlayBtnProps = {
-  playOnClick: () => void;
-  status: string;
-  multi: number;
-  multiOnClick: any;
-};
-
 export default function PlayBtn({
   playOnClick,
   status,
@@ -25,3 +18,10 @@ export default function PlayBtn({
     </div>
   );
 }
+
+type PlayBtnProps = {
+  playOnClick: () => void;
+  status: string;
+  multi: number;
+  multiOnClick: any;
+};

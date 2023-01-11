@@ -5,11 +5,11 @@ import FormInput from "../../components/FormInput";
 import { AlertContext } from "../../contexts/AlertContext";
 import styles from "../../styles/pages/auth/SignupPage.module.scss";
 import { validate } from "../../utils/auth";
-import { URL } from "../../data/data";
 
 export default function SignupPage() {
-  const { addAlert } = useContext(AlertContext);
+  const URL = import.meta.env.VITE_URL;
   const navigate = useNavigate();
+  const { addAlert } = useContext(AlertContext);
 
   const [values, setValues] = useState({
     username: "",
@@ -18,7 +18,7 @@ export default function SignupPage() {
     confirmPassword: "",
   });
 
-  const signupArray = [
+  const SIGNUP_FORM = [
     {
       id: 0,
       name: "username",
@@ -56,12 +56,12 @@ export default function SignupPage() {
       placeholder: "********",
       errorMessage: "Passwords don't match",
       label: "Confirm password",
-      pattern: values.password,
+      pattern: values.password, // FIX : can't move this array to bottom because of this line.
       required: true,
     },
   ];
 
-  const handleSubmit = async () => {
+  async function handleSubmit() {
     try {
       const res = await axios.post(`${URL}/auth/signup`, { ...values });
       if (res.status === 201) {
@@ -75,21 +75,21 @@ export default function SignupPage() {
         console.log(err);
       }
     }
-  };
+  }
 
-  const disabled = () => {
+  function isDisabled() {
     return !(
       validate(values.username, "username") &&
       validate(values.email, "email") &&
       validate(values.password, "password") &&
       values.password === values.confirmPassword
     );
-  };
+  }
 
   return (
     <div className={styles.SignupPage}>
       <form onSubmit={(e) => e.preventDefault()}>
-        {signupArray.map((input) => (
+        {SIGNUP_FORM.map((input) => (
           <FormInput
             key={input.id}
             name={input.name}
@@ -103,11 +103,10 @@ export default function SignupPage() {
             setValues={setValues}
           />
         ))}
-
         <button
           type="submit"
           onClick={() => handleSubmit()}
-          disabled={disabled()}
+          disabled={isDisabled()}
         >
           SIGN UP
         </button>

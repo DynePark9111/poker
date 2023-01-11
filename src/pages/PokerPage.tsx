@@ -6,25 +6,15 @@ import PlayBtn from "../components/poker/PlayBtn";
 import Wallet from "../components/Wallet";
 import styles from "../styles/pages/PokerPage.module.scss";
 import axios from "axios";
-import { RANK_TYPE, GAME_STATUS } from "../types/types";
-import { INITIAL_DECK, URL } from "../data/data";
+import { RANK_TYPE, GAME_STATUS } from "../types/poker.types";
 import Total from "../components/poker/Total";
 import confetti from "../assets/lottie/confetti.json";
 import LottieImage from "../components/LottieImage";
 import { AlertContext } from "../contexts/AlertContext";
 import { UserContext } from "../contexts/UserContext";
 
-export type mainCardsType = {
-  cards: string[];
-  rank: RANK_TYPE;
-};
-
-const INITIAL_MAIN_CARDS: mainCardsType = {
-  cards: INITIAL_DECK,
-  rank: "0" as RANK_TYPE,
-};
-
 export default function PokerPage() {
+  const URL = import.meta.env.VITE_URL;
   const { addAlert } = useContext(AlertContext);
   const { user, handleGem } = useContext(UserContext);
 
@@ -155,3 +145,15 @@ export default function PokerPage() {
     </div>
   );
 }
+
+const INITIAL_DECK = ["2X", "3X", "4X", "5X", "6X"];
+
+export type mainCardsType = {
+  cards: string[];
+  rank: RANK_TYPE;
+};
+
+const INITIAL_MAIN_CARDS: mainCardsType = {
+  cards: INITIAL_DECK,
+  rank: "0" as RANK_TYPE,
+};

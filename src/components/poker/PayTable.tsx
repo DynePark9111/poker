@@ -4,7 +4,7 @@ import {
   PROBABILITY_TABLE,
   RANK,
   RANK_TYPE,
-} from "../../types/types";
+} from "../../types/poker.types";
 
 export default function PayTable() {
   return (

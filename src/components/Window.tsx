@@ -4,12 +4,9 @@ import { ModalContext } from "../contexts/ModalContext";
 import styles from "../styles/Window.module.scss";
 import Btn from "./Btn";
 
-type WindowProps = {
-  children: ReactNode;
-};
-
 export default function Window({ children }: WindowProps) {
   const { setActiveModal } = useContext(ModalContext);
+
   return (
     <div className={styles.Window}>
       <header>
@@ -24,3 +21,7 @@ export default function Window({ children }: WindowProps) {
     </div>
   );
 }
+
+type WindowProps = {
+  children: ReactNode;
+};

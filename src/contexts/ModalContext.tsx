@@ -1,5 +1,9 @@
 import { createContext, useState } from "react";
-import { childrenProps, ModalContextType, status } from "../types/contextTypes";
+import {
+  childrenProps,
+  ModalContextType,
+  status,
+} from "../types/context.types";
 
 export const ModalContext = createContext({} as ModalContextType);
 

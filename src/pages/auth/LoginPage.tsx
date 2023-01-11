@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import FormInput from "../../components/FormInput";
 import { AlertContext } from "../../contexts/AlertContext";
 import { UserContext } from "../../contexts/UserContext";
-import { URL } from "../../data/data";
 import styles from "../../styles/pages/auth/LoginPage.module.scss";
 import { validate } from "../../utils/auth";
 
 export default function LoginPage() {
+  const URL = import.meta.env.VITE_URL;
+
   const { addAlert } = useContext(AlertContext);
   const { login } = useContext(UserContext);
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ export default function LoginPage() {
   return (
     <div className={styles.LoginPage}>
       <form onSubmit={(e) => e.preventDefault()}>
-        {loginArray.map((input) => (
+        {LOGIN_FORM.map((input) => (
           <FormInput
             key={input.id}
             name={input.name}
@@ -78,7 +79,7 @@ export default function LoginPage() {
   );
 }
 
-const loginArray = [
+const LOGIN_FORM = [
   {
     id: 0,
     name: "email",

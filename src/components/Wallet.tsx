@@ -4,11 +4,6 @@ import purpleGem from "../assets/icons/gem_purple.webp";
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 
-type WalletItemProps = {
-  image: string;
-  amount: number;
-};
-
 export default function Wallet() {
   const { user } = useContext(UserContext);
 
@@ -28,3 +23,8 @@ function WalletItem({ image, amount }: WalletItemProps) {
     </div>
   );
 }
+
+type WalletItemProps = {
+  image: string;
+  amount: number;
+};

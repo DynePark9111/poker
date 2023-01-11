@@ -1,13 +1,6 @@
 import styles from "../styles/TinyBtn.module.scss";
 import Btn from "./Btn";
 
-type TinyBtnProps = {
-  text: string;
-  onClick: () => void;
-  icon: string;
-  disabled?: boolean;
-};
-
 export default function TinyBtn({
   text,
   icon,
@@ -29,3 +22,10 @@ export default function TinyBtn({
     </div>
   );
 }
+
+type TinyBtnProps = {
+  text: string;
+  onClick: () => void;
+  icon: string;
+  disabled?: boolean;
+};

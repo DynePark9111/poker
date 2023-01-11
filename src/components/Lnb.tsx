@@ -3,10 +3,6 @@ import { useNavigate } from "react-router-dom";
 import styles from "../styles/Lnb.module.scss";
 import Btn from "./Btn";
 
-type LnbProps = {
-  title?: string;
-};
-
 export default function Lnb({ title }: LnbProps) {
   const navigate = useNavigate();
   return (
@@ -25,3 +21,7 @@ export default function Lnb({ title }: LnbProps) {
     </div>
   );
 }
+
+type LnbProps = {
+  title?: string;
+};

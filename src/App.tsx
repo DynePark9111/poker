@@ -16,6 +16,7 @@ import ShopPage from "./pages/ShopPage";
 
 export default function App() {
   const { isDark } = useContext(DarkmodeContext);
+
   return (
     <div data-theme={isDark ? "dark" : "light"}>
       <Alert />

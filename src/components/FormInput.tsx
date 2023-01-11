@@ -1,18 +1,6 @@
 import styles from "../styles/FormInput.module.scss";
 import { useState } from "react";
 
-type FormInputProps = {
-  name: string;
-  type: string;
-  placeholder: string;
-  errorMessage: string;
-  label: string;
-  pattern?: string;
-  required: boolean;
-  values: {};
-  setValues: any;
-};
-
 export default function FormInput(props: FormInputProps) {
   const { label, errorMessage, setValues, values, name, ...inputProps } = props;
   const [blur, setBlur] = useState(false);
@@ -30,3 +18,15 @@ export default function FormInput(props: FormInputProps) {
     </div>
   );
 }
+
+type FormInputProps = {
+  name: string;
+  type: string;
+  placeholder: string;
+  errorMessage: string;
+  label: string;
+  pattern?: string;
+  required: boolean;
+  values: {};
+  setValues: any;
+};

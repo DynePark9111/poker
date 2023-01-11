@@ -13,27 +13,8 @@ import { useNavigate } from "react-router-dom";
 import { AlertContext } from "../contexts/AlertContext";
 import { UserContext } from "../contexts/UserContext";
 
-type ListBtnProps = {
-  title: string;
-  icon?: string;
-  onClick?: () => void;
-  disabled?: boolean;
-};
-
 export default function Menu() {
-  const { addAlert } = useContext(AlertContext);
-  const { user, logout } = useContext(UserContext);
-  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-
-  function underDev() {
-    addAlert("Under development", "error");
-  }
-
-  function logoutClick() {
-    addAlert(`Goodbye ${user.username}`, "success");
-    logout();
-  }
 
   return (
     <div className={styles.Menu}>
@@ -47,49 +28,67 @@ export default function Menu() {
           </div>
         </Btn>
       </div>
-      {isOpen && (
-        <ul className={styles.menuItems}>
-          <ListBtn title={"home"} icon={star} onClick={() => navigate("/")} />
-          <ListBtn
-            title={"poker"}
-            icon={trophy}
-            onClick={() => navigate("/poker")}
-          />
-          <ListBtn title={"my"} icon={rank} onClick={() => navigate("/my")} />
-          {user.username === "guest" ? (
-            <ListBtn
-              title={"login"}
-              icon={news}
-              onClick={() => navigate("/auth")}
-            />
-          ) : (
-            <ListBtn title={"logout"} icon={news} onClick={logoutClick} />
-          )}
-          <ListBtn
-            title={"settings"}
-            icon={rank}
-            onClick={() => navigate("/settings")}
-          />
-          <ListBtn
-            title={"friend"}
-            icon={friend}
-            onClick={underDev}
-            disabled={true}
-          />
-          <ListBtn
-            title={"board"}
-            icon={board}
-            onClick={underDev}
-            disabled={true}
-          />
-          <ListBtn
-            title={"not found"}
-            icon={report}
-            onClick={() => navigate("notFound")}
-          />
-        </ul>
-      )}
+      {isOpen && <MenuItems />}
     </div>
+  );
+}
+
+function MenuItems() {
+  const { addAlert } = useContext(AlertContext);
+  const { user, logout } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  function underDev() {
+    addAlert("Under development", "error");
+  }
+  function logoutClick() {
+    addAlert(`Goodbye ${user.username}`, "success");
+    logout();
+  }
+
+  return (
+    <ul className={styles.MenuItems}>
+      <ListBtn title={"home"} icon={star} onClick={() => navigate("/")} />
+      <ListBtn
+        title={"poker"}
+        icon={trophy}
+        onClick={() => navigate("/poker")}
+      />
+      <ListBtn title={"my"} icon={rank} onClick={() => navigate("/my")} />
+
+      {user.username === "guest" ? (
+        <ListBtn
+          title={"login"}
+          icon={news}
+          onClick={() => navigate("/auth")}
+        />
+      ) : (
+        <ListBtn title={"logout"} icon={news} onClick={logoutClick} />
+      )}
+
+      <ListBtn
+        title={"settings"}
+        icon={rank}
+        onClick={() => navigate("/settings")}
+      />
+      <ListBtn
+        title={"friend"}
+        icon={friend}
+        onClick={underDev}
+        disabled={true}
+      />
+      <ListBtn
+        title={"board"}
+        icon={board}
+        onClick={underDev}
+        disabled={true}
+      />
+      <ListBtn
+        title={"not found"}
+        icon={report}
+        onClick={() => navigate("notFound")}
+      />
+    </ul>
   );
 }
 
@@ -116,3 +115,10 @@ function ListBtn({
     </li>
   );
 }
+
+type ListBtnProps = {
+  title: string;
+  icon?: string;
+  onClick?: () => void;
+  disabled?: boolean;
+};

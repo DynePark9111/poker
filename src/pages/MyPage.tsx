@@ -48,6 +48,7 @@ function MyPageTop() {
         <img src={profileImage} alt={user.username} />
         <div className={styles.userId}>{user._id}</div>
       </div>
+
       <div className={styles.userName}>
         <div className={styles.cog}>
           <FaCog />
@@ -56,6 +57,7 @@ function MyPageTop() {
           <div className={styles.wrapper}>{user.username}</div>
         </Btn>
       </div>
+
       <div className={styles.nameColor}>
         <div className={styles.cog}>
           <FaCog />

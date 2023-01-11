@@ -9,49 +9,46 @@
       @include btnIcon;
     }
   }
-  .menuItems {
-    z-index: 8;
-    height: 100vh;
-    width: 12rem;
-    position: fixed;
-    right: -5rem;
-    flex-direction: column;
-    transform: skew(-4deg);
-    padding: 4rem 18rem 1rem 2rem;
-    background-color: $black;
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+}
 
-    .ListBtn {
-      margin-bottom: 1rem;
-      &#disabled {
-        filter: grayscale(1);
+.MenuItems {
+  z-index: 8;
+  height: 100vh;
+  width: 12rem;
+  position: fixed;
+  right: -5rem;
+  flex-direction: column;
+  transform: skew(-4deg);
+  padding: 4rem 18rem 1rem 2rem;
+  background-color: $black;
+  overflow-y: scroll;
+  @include hideYScroll;
+}
+
+.ListBtn {
+  margin-bottom: 1rem;
+  &#disabled {
+    filter: grayscale(1);
+  }
+  .wrapper {
+    position: relative;
+    color: $white;
+    text-align: left;
+    min-width: 10rem;
+    .icon {
+      position: absolute;
+      top: 0.25rem;
+      left: -1rem;
+      font-size: 1.25rem;
+      img {
+        width: 2.5rem;
       }
-      .wrapper {
-        position: relative;
-        color: $white;
-        text-align: left;
-        min-width: 10rem;
-        .icon {
-          position: absolute;
-          top: 0.25rem;
-          left: -1rem;
-          font-size: 1.25rem;
-          img {
-            width: 2.5rem;
-          }
-        }
-        .text {
-          color: $white;
-          font-weight: bold;
-          font-size: 1rem;
-          padding: 1rem 2rem;
-        }
-      }
+    }
+    .text {
+      color: $white;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 1rem 2rem;
     }
   }
 }

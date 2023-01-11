@@ -1,12 +1,11 @@
 import axios from "axios";
 import { useReducer, createContext, useEffect } from "react";
-import { URL } from "../data/data";
 import {
   AuthAction,
   childrenProps,
   UserContextType,
   userType,
-} from "../types/contextTypes";
+} from "../types/context.types";
 
 const defaultUser = {
   _id: "#GUESTID9111",
@@ -45,6 +44,8 @@ function userReducer(state: userType, action: AuthAction) {
 export const UserContext = createContext({} as UserContextType);
 
 export default function UserContextProvider({ children }: childrenProps) {
+  const URL = import.meta.env.VITE_URL;
+
   const [user, dispatch] = useReducer(userReducer, defaultUser, () => {
     const localUser = localStorage.getItem("user");
     return localUser ? JSON.parse(localUser) : defaultUser;
