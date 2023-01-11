@@ -12,6 +12,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import AuthPage from "./pages/auth/AuthPage";
 import LoginPage from "./pages/auth/LoginPage";
 import SignupPage from "./pages/auth/SignupPage";
+import Background from "./components/Background";
 const PokerPage = lazy(() => import("./pages/PokerPage"));
 
 export default function App() {
@@ -19,7 +20,7 @@ export default function App() {
 
   return (
     <div data-theme={isDark ? "dark" : "light"}>
-      <Suspense fallback={<Layout />}>
+      <Suspense fallback={<Background />}>
         <Alert />
         <Routes>
           <Route element={<Layout />}>
