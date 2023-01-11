@@ -1,0 +1,22 @@
+@use "./__global" as *;
+
+.Aside {
+  z-index: 1;
+  position: fixed;
+  inset: 10rem 0 auto 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  .left,
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: $max_width3) {
+  .Aside {
+    display: none;
+  }
+}

@@ -1,0 +1,30 @@
+@use "./__global" as *;
+
+.Wallet {
+  position: fixed;
+  inset: 0.5rem 8rem auto 7.5rem;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  gap: 0.5rem 2rem;
+  align-items: center;
+  .WalletItem {
+    position: relative;
+    img {
+      position: absolute;
+      top: 0;
+      left: -1rem;
+      width: 2rem;
+      aspect-ratio: 1/1;
+    }
+    .amount {
+      color: $white;
+      background-color: $black;
+      border-radius: $bd_radius;
+      padding: 0.5rem 1rem 0.5rem 1.5rem;
+      text-align: center;
+    }
+  }
+}

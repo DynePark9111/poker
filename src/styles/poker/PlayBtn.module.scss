@@ -1,0 +1,23 @@
+@use "../__global" as *;
+
+.PlayBtn {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.25rem;
+  margin-left: 10rem;
+  justify-content: flex-end;
+  .play,
+  .multi,
+  .sort {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    font-weight: bold;
+    font-size: calc(0.25rem + 4vmin);
+    width: 20vmin;
+    aspect-ratio: 2.5 /1;
+  }
+}

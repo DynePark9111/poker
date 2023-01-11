@@ -1,0 +1,25 @@
+.Modal {
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  &#show {
+    display: auto;
+  }
+  &#hide {
+    display: none;
+  }
+  .bg {
+    pointer-events: auto;
+    position: fixed;
+    inset: 0;
+    background-color: #00000044;
+    z-index: 9998;
+    cursor: pointer;
+  }
+  > * {
+    z-index: 9999;
+  }
+}

@@ -1,0 +1,122 @@
+@use "../__global" as *;
+
+.ShopPage {
+  .shop {
+    inset: 0;
+    position: fixed;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.LargeContainer {
+  @include boxShadow;
+  color: white;
+  min-height: 25rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: $bd_radius;
+  transform: skew(-3deg);
+  border: 2px solid #162d89;
+  max-width: 37.5rem;
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #162d89;
+    // background-color: #1932b0;
+    background-color: #11227b90;
+    min-height: 3.5rem;
+    flex: 1;
+    font-size: 1.75rem;
+    @include textShadow;
+  }
+  section {
+    padding: 1.5rem 1.25rem;
+    // background-color: #0f3dbc;
+    background-color: #3352a551;
+    flex: 9;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+.SmallContainer {
+  cursor: pointer;
+  @include boxShadow;
+  width: 100%;
+  height: 100%;
+  min-width: 130px;
+  min-height: 150px;
+  max-width: 130px;
+  max-height: 150px;
+  aspect-ratio: 13 / 15;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: $bd_radius;
+  transform: skew(-3deg);
+  border: 2px solid black;
+  text-align: center;
+  overflow: hidden;
+  .amount {
+    @include textShadow;
+    color: #c1ff64;
+    position: absolute;
+    inset: 0.25rem 0.25rem auto auto;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  .imageWrapper {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    background: radial-gradient(closest-side, #bbff9d, #21d20e);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      aspect-ratio: 1/1;
+      max-width: 75%;
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      object-position: center center;
+      // filter: grayscale(1);
+    }
+    .tag {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include textShadow;
+      font-size: 0.75rem;
+      height: 20px;
+      width: 100%;
+      background-color: #e3231e;
+      border-top: 1px solid black;
+    }
+  }
+
+  .price {
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include textShadow;
+    color: $white;
+    background-color: #414a66;
+    width: 100%;
+    font-size: 1.25rem;
+    height: 36px;
+  }
+}

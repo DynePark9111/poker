@@ -1,0 +1,13 @@
+@use "./__global" as *;
+
+.LottieImage {
+  pointer-events: none;
+  div {
+    // todo: fix later. this is for confetti only
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+  }
+}

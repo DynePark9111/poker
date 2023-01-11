@@ -1,0 +1,42 @@
+@use "../__global" as *;
+
+.Total {
+  position: fixed;
+  bottom: 1rem;
+  left: 2rem;
+  display: flex;
+  gap: 2rem;
+  cursor: pointer;
+  .ribbon {
+    position: fixed;
+    inset: 40% 0 auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background-color: #00000099;
+    width: 100%;
+    padding: 1rem;
+    color: $white;
+    font-weight: bold;
+    font-size: 2rem;
+    pointer-events: none;
+    transition: opacity 300ms;
+    &#show {
+      opacity: 1;
+    }
+    &#hide {
+      opacity: 0;
+    }
+  }
+}
+
+.PokerStats {
+  padding: 0.75rem;
+  max-width: 40rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem 4rem;
+}
