@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { lazy, Suspense, useContext, useState } from "react";
 import Background from "../components/Background";
 import PokerTable from "../components/poker/PokerTable";
 import Menu from "../components/Menu";
@@ -8,12 +8,13 @@ import styles from "../styles/pages/PokerPage.module.scss";
 import { GAME_STATUS } from "../types/poker.types";
 import Total from "../components/poker/Total";
 import confetti from "../assets/lottie/confetti.json";
-import LottieImage from "../components/LottieImage";
 import Profile from "../components/Profile";
 import { INITIAL_HAND, PokerContext } from "../contexts/PokerContext";
 import { UserContext } from "../contexts/UserContext";
 import { AlertContext } from "../contexts/AlertContext";
 import axios from "axios";
+
+const LottieImage = lazy(() => import("../components/LottieImage"));
 
 export default function PokerPage() {
   const URL = import.meta.env.VITE_URL;
