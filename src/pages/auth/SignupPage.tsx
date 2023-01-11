@@ -70,7 +70,7 @@ export default function SignupPage() {
       }
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        addAlert(err.message, "error");
+        addAlert(err.response?.data.error, "error");
       } else {
         console.log(err);
       }
