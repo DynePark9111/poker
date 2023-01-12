@@ -1,4 +1,3 @@
-import Background from "../components/Background";
 import Lnb from "../components/Lnb";
 import styles from "../styles/pages/MyPage.module.scss";
 import profileImage from "../assets/icons/profile.webp";
@@ -21,7 +20,6 @@ import { AlertContext } from "../contexts/AlertContext";
 export default function MyPage() {
   return (
     <div className={styles.MyPage}>
-      <Background color="#024BC1" />
       <Lnb title="My" />
       <MyPageContent />
     </div>

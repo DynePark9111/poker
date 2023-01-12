@@ -1,9 +1,8 @@
 @use "../__global" as *;
 
 .SettingsPage {
+  @include page;
   margin: 20vh auto;
-  // background-color: #ffffff22;
-  // border-radius: $bd_radius;
   max-width: 80vh;
   section {
     padding: 1rem;
@@ -25,7 +24,7 @@
 .Confirm {
   margin: auto 1rem;
   padding: 2rem;
-  border-radius: $bd_radius;
+  border-radius: $bd_r;
   background-color: $white;
   display: flex;
   flex-direction: column;

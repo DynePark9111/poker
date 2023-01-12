@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AlertContext } from "../../contexts/AlertContext";
+import { DarkmodeContext } from "../../contexts/DarkmodeContext";
 import { PokerContext } from "../../contexts/PokerContext";
 import styles from "../../styles/poker/PlayBtn.module.scss";
 import { GAME_STATUS } from "../../types/poker.types";
@@ -9,16 +10,18 @@ export default function PlayBtn({ onClickPlay }: PlayBtnProps) {
   const { addAlert } = useContext(AlertContext);
   const { status, multiHand, setMultiHand, multi, setMulti } =
     useContext(PokerContext);
+  const { isDark } = useContext(DarkmodeContext);
+  let color = isDark ? "#bf9c06" : "#efc308";
 
   return (
     <div className={styles.PlayBtn}>
-      <Btn color="#efc308" onClick={onClickMulti}>
+      <Btn color={color} onClick={onClickMulti}>
         <div className={styles.multi}>x{multi}</div>
       </Btn>
-      <Btn color="#efc308" onClick={onClickSort}>
+      <Btn color={color} onClick={onClickSort}>
         <div className={styles.sort}>SORT</div>
       </Btn>
-      <Btn color="#efc308" onClick={onClickPlay}>
+      <Btn color={color} onClick={onClickPlay}>
         <div className={styles.play}>{gameStatus()}</div>
       </Btn>
     </div>

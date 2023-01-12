@@ -1,5 +1,5 @@
 @use "../__global" as *;
 
 .HomePage {
-  background: none;
+  @include page;
 }

@@ -4,8 +4,9 @@ import { useContext, useEffect, useState } from "react";
 import info from "../../assets/icons/info.webp";
 import Modal from "../Modal";
 import gems from "../../assets/icons/gems.webp";
-import gem from "../../assets/icons/gem_purple.webp";
-import star from "../../assets/icons/star.webp";
+import gem_purple from "../../assets/icons/gem_purple.webp";
+import gem_purple2 from "../../assets/icons/gem_purple2.webp";
+import trophy from "../../assets/icons/trophy.webp";
 import { GAME_STATUS } from "../../types/poker.types";
 import PayTable from "./PayTable";
 import Window from "../Window";
@@ -58,9 +59,9 @@ export default function Total({ total, spend }: TotalProps) {
     return (
       <ul className={styles.PokerStats}>
         <ListItem label="EARNED" icon={gems} count={earned} />
-        <ListItem label="SPENT" icon={gem} count={spent} />
-        <ListItem label="TOTAL" icon={star} count={earned - spent} />
-        <ListItem label="ROUNDS PLAYED" icon={star} count={rounds} />
+        <ListItem label="SPENT" icon={gem_purple} count={spent} />
+        <ListItem label="TOTAL" icon={gem_purple2} count={earned - spent} />
+        <ListItem label="ROUNDS PLAYED" icon={trophy} count={rounds} />
       </ul>
     );
   }

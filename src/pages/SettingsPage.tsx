@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import Background from "../components/Background";
 import Btn from "../components/Btn";
 import Lnb from "../components/Lnb";
 import Modal from "../components/Modal";
@@ -24,7 +23,6 @@ export default function SettingsPage() {
 
   return (
     <div className={styles.SettingsPage}>
-      <Background />
       <Lnb title="Settings" />
       <section>
         <OnOff title="DARKMODE" isOn={isDark} toggle={toggleDarkmode} />

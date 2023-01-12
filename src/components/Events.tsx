@@ -1,6 +1,6 @@
 import styles from "../styles/Events.module.scss";
-import robot from "../assets/icons/robot.webp";
-import duel from "../assets/icons/duel.webp";
+import skull from "../assets/icons/skull.webp";
+import trophy from "../assets/icons/trophy.webp";
 import { useNavigate } from "react-router-dom";
 import InfoIcon from "./InfoIcon";
 import locks from "../assets/images/bg_lock.webp";
@@ -12,10 +12,10 @@ export default function Events() {
   return (
     <div className={styles.Events}>
       <Event
-        icon={duel}
+        icon={trophy}
         title="JACKS OR BETTER"
         subtitle="5 card poker game"
-        time="01H 02M"
+        time="January 11th"
         link="poker"
         image={poker}
         color="#A60528"
@@ -87,7 +87,7 @@ function Event({
       <InfoIcon open={link} />
       <div className={styles.wrapper} onClick={navigateOrAlert}>
         <div className={styles.time}>
-          New event: {available ? time : disabled.time}
+          {available ? `New event: ${time}` : disabled.time}
         </div>
 
         <div className={styles.info} style={{ backgroundColor }}>
@@ -127,10 +127,10 @@ type EventProps = {
 };
 
 const disabled = {
-  icon: robot,
+  icon: skull,
   title: "LOCKED",
   subtitle: "currently unavailable...",
-  time: "00H 00M",
+  time: "Coming soon...",
   link: "none",
   image: locks,
 };

@@ -3,43 +3,52 @@ $max_width2: 62rem;
 $max_width3: 42rem;
 $max_width4: 23rem;
 
-// color
-$purple: #816bff;
-$green: green;
-$blue: #2270ff;
-$red: #a60628;
-$yellow: #efc308;
-$black: #000000;
-$white: #ffffff;
-$bg_btn: #495479;
+$bd_r: 0.25rem;
 
-$bd_radius: 0.25rem;
-
-// Darkmode
-// TODO : dark, light mode color. current version is darkmode.
-[data-theme="dark"] {
-  color: #3b0707;
-  --btn: #343c4f;
-  --bg: #000e21;
+.App[data-theme="dark"] {
+  --black: #000000;
+  --white: #fafafa;
+  --red: #9c1030;
+  --blue: #002d82;
+  --green: #003900;
+  --yellow: #bf9c06;
+  --btn: #171b23dd;
+  --bg: #00245c;
 }
 
-[data-theme="light"] {
-  // --btn: #2270ff;
-  --btn: #343c4f;
+.App[data-theme="light"] {
+  --black: #060606;
+  --white: #ffffff;
+  --red: #e22020;
+  --blue: #2270ff;
+  --green: #008000;
+  --yellow: #efc308;
+  --btn: #343c4fdd;
   --bg: #024bc1;
 }
 
+$black: var(--black);
+$white: var(--white);
+$red: var(--red);
+$blue: var(--blue);
+$green: var(--green);
+$yellow: var(--yellow);
 $btn: var(--btn);
 $bg: var(--bg);
-//
 
 @mixin hideYScroll {
   overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
   }
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+}
+
+/* on top of Layout/ribbon */
+@mixin page {
+  position: relative;
+  z-index: 3;
 }
 
 @mixin textShadow {
