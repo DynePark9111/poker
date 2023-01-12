@@ -18,7 +18,7 @@
     .smallTable {
       @include boxShadow;
       background-color: #ffffff55;
-      border-radius: $bd_radius;
+      border-radius: $bd_r;
       padding: 1rem 0.5rem;
       gap: 0.25rem;
       display: flex;
@@ -38,7 +38,7 @@
   .MainTable {
     @include boxShadow;
     margin: 0 auto;
-    border-radius: $bd_radius;
+    border-radius: $bd_r;
     width: 100%;
     background-color: #ffffff55;
     display: flex;

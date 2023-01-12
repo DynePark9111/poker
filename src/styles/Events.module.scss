@@ -16,7 +16,7 @@
   .Event {
     box-shadow: 1px 4px 2px #00000088;
     border: 2px solid $black;
-    border-radius: $bd_radius;
+    border-radius: $bd_r;
     cursor: pointer;
     transform: skew(-2deg);
     aspect-ratio: 2/1;
@@ -88,6 +88,6 @@
 
 @media screen and (max-width: $max_width3) {
   .Events {
-    inset: auto;
+    inset: 0 0 0 0;
   }
 }

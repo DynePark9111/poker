@@ -1,5 +1,4 @@
-import { lazy, Suspense, useContext, useState } from "react";
-import Background from "../components/Background";
+import { lazy, useContext, useState } from "react";
 import PokerTable from "../components/poker/PokerTable";
 import Menu from "../components/Menu";
 import PlayBtn from "../components/poker/PlayBtn";
@@ -34,7 +33,7 @@ export default function PokerPage() {
 
   return (
     <div className={styles.PokerPage}>
-      <Background color="#005f00" />
+      {/* <Background color="#005f00" /> */}
       <Profile />
       <Menu />
       <Wallet />

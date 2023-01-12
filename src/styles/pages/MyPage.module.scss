@@ -1,6 +1,7 @@
 @use "../__global" as *;
 
 .MyPage {
+  @include page;
   min-width: 320px;
   .MyPageContent {
     position: fixed;
@@ -43,7 +44,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          color: white;
+          color: $white;
           font-weight: bold;
           font-size: 1rem;
           padding: 1rem 2rem;
@@ -57,7 +58,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          color: white;
+          color: $white;
           font-weight: bold;
           font-size: 1rem;
           padding: 1rem 2rem;

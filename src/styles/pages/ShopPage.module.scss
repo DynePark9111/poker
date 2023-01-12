@@ -1,6 +1,7 @@
 @use "../__global" as *;
 
 .ShopPage {
+  @include page;
   .shop {
     inset: 0;
     position: fixed;
@@ -13,12 +14,12 @@
 
 .LargeContainer {
   @include boxShadow;
-  color: white;
+  color: $white;
   min-height: 25rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-radius: $bd_radius;
+  border-radius: $bd_r;
   transform: skew(-3deg);
   border: 2px solid #162d89;
   max-width: 37.5rem;
@@ -60,9 +61,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: $bd_radius;
+  border-radius: $bd_r;
   transform: skew(-3deg);
-  border: 2px solid black;
+  border: 2px solid $black;
   text-align: center;
   overflow: hidden;
   .amount {
@@ -102,13 +103,13 @@
       font-size: 0.75rem;
       height: 20px;
       width: 100%;
-      background-color: #e3231e;
-      border-top: 1px solid black;
+      background-color: #e22020;
+      border-top: 1px solid $black;
     }
   }
 
   .price {
-    border-top: 1px solid black;
+    border-top: 1px solid $black;
     display: flex;
     justify-content: center;
     align-items: center;

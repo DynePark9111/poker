@@ -2,7 +2,7 @@
 
 .Window {
   @include boxShadow;
-  border-radius: $bd_radius;
+  border-radius: $bd_r;
   z-index: 9999;
   position: fixed;
   inset: 2rem;
