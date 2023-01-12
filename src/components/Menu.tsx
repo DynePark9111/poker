@@ -1,14 +1,12 @@
 import styles from "../styles/Menu.module.scss";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaHome } from "react-icons/fa";
 import { useContext, useState } from "react";
 import Btn from "./Btn";
-import rank from "../assets/icons/rank.webp";
+import shop from "../assets/icons/shop.webp";
 import trophy from "../assets/icons/trophy.webp";
-import news from "../assets/icons/news.webp";
 import friend from "../assets/icons/people.webp";
-import board from "../assets/icons/board.webp";
-import report from "../assets/icons/robot2.webp";
-import star from "../assets/icons/star.webp";
+import robot from "../assets/icons/robot.webp";
+import profile from "../assets/icons/profile.webp";
 import { useNavigate } from "react-router-dom";
 import { AlertContext } from "../contexts/AlertContext";
 import { UserContext } from "../contexts/UserContext";
@@ -19,7 +17,6 @@ export default function Menu() {
   return (
     <div className={styles.Menu}>
       <Btn onClick={() => setIsOpen((prev) => !prev)}>
-        {/* TODO : change icon */}
         <div className={styles.faBars}>
           <FaBars />
         </div>
@@ -44,29 +41,20 @@ function MenuItems() {
 
   return (
     <ul className={styles.MenuItems}>
-      <ListBtn title={"home"} icon={star} onClick={() => navigate("/")} />
+      <ListBtn title={"home"} onClick={() => navigate("/")} />
+      {user.username === "guest" ? (
+        <ListBtn title={"login"} onClick={() => navigate("/auth")} />
+      ) : (
+        <ListBtn title={"logout"} onClick={logoutClick} />
+      )}
+      <ListBtn title={"settings"} onClick={() => navigate("/settings")} />
       <ListBtn
         title={"poker"}
         icon={trophy}
         onClick={() => navigate("/poker")}
       />
-      <ListBtn title={"my"} icon={rank} onClick={() => navigate("/my")} />
-
-      {user.username === "guest" ? (
-        <ListBtn
-          title={"login"}
-          icon={news}
-          onClick={() => navigate("/auth")}
-        />
-      ) : (
-        <ListBtn title={"logout"} icon={news} onClick={logoutClick} />
-      )}
-
-      <ListBtn
-        title={"settings"}
-        icon={rank}
-        onClick={() => navigate("/settings")}
-      />
+      <ListBtn title={"shop"} icon={shop} onClick={() => navigate("/shop")} />
+      <ListBtn title={"my"} icon={profile} onClick={() => navigate("/my")} />
       <ListBtn
         title={"friend"}
         icon={friend}
@@ -74,14 +62,8 @@ function MenuItems() {
         disabled={true}
       />
       <ListBtn
-        title={"board"}
-        icon={board}
-        onClick={underDev}
-        disabled={true}
-      />
-      <ListBtn
         title={"not found"}
-        icon={report}
+        icon={robot}
         onClick={() => navigate("notFound")}
       />
     </ul>

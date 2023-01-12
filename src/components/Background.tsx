@@ -1,5 +1,5 @@
 import styles from "../styles/Background.module.scss";
-import chip from "../assets/icons/chip.svg";
+import chip from "../assets/images/chip.svg";
 
 export default function Background({
   icon = chip,

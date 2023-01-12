@@ -67,6 +67,9 @@
     font-size: clamp(2rem, 4vmin, 3rem);
     &#hide {
       color: $white;
+      &::after {
+        content: none;
+      }
     }
     &show {
       color: inherit;
