@@ -1,21 +1,32 @@
 # poker
 
-## About
+    It's a poker game website.
 
-- poker game website
+[Visit website](https://game.dynedyne.com)
 
 ## Stack
 
-- React(typescript)
+- React (FE)
+- Nodejs (BE)
 
 ## Get started
 
-### frontend
+### `frontend`
 
-1. git clone
-2. yarn
-3. yarn dev
+```bash
+git clone https://github.com/DynePark9111/poker.git
+yarn add
+touch .env
+yarn dev
 
-### backend
+```
 
-1. poker_be [Github](https://github.com/DynePark9111/poker_be)
+### `backend`
+
+[Github: poker_be ](https://github.com/DynePark9111/poker_be)
+
+### `.env`
+
+```
+VITE_URL = http://localhost:8080
+```
