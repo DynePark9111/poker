@@ -1,9 +1,0 @@
-<svg>
-  <defs>
-    <pattern id="pattern">
-      <line x1="0" y1="0" x2="30" y2="30" class="ptrn1" />    
-      <line x1="0" y1="30" x2="30" y2="0" class="ptrn2" />
-    </pattern>
-  </defs>
-  <rect fill="url(#pattern)" x="150" y="150" width="300" height="300" />
-</svg>

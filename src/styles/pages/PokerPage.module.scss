@@ -1,7 +1,7 @@
 @use "../__global" as *;
 
 .PokerPage {
-  background: none;
+  @include page;
   .test {
     position: fixed;
     top: 0;

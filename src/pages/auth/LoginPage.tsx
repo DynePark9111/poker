@@ -63,7 +63,7 @@ export default function LoginPage() {
         ))}
         <div
           className={styles.findpw}
-          onClick={() => addAlert("Under development", "normal")}
+          onClick={() => addAlert("Under development", "error")}
         >
           Find password
         </div>

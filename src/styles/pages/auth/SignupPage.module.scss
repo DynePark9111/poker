@@ -4,7 +4,7 @@
   form {
     background-color: $white;
     padding: 2rem;
-    border-radius: $bd_radius;
+    border-radius: $bd_r;
     display: flex;
     flex-direction: column;
   }
@@ -22,7 +22,7 @@
     border: none;
     background-color: $blue;
     color: $white;
-    border-radius: $bd_radius;
+    border-radius: $bd_r;
     font-weight: bold;
     font-size: 1rem;
     cursor: pointer;

@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import Aside from "../components/Aside";
-import Background from "../components/Background";
 import Events from "../components/Events";
 import Menu from "../components/Menu";
 import Modal from "../components/Modal";
@@ -16,7 +15,6 @@ export default function HomePage() {
 
   return (
     <div className={styles.HomePage}>
-      <Background />
       <Menu />
       <Profile />
       <Wallet />

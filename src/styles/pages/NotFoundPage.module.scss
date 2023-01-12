@@ -1,6 +1,7 @@
 @use "../__global" as *;
 
 .NotFoundPage {
+  @include page;
   position: fixed;
   inset: 0;
   color: $white;
@@ -11,7 +12,7 @@
   padding: 1rem;
   gap: 1rem;
   text-align: center;
-  font-size: 2rem;
+  font-size: clamp(1rem, 5vmin, 2rem);
   h1 {
     font-size: 3em;
     margin: 0;
@@ -23,7 +24,7 @@
     border: none;
     background-color: $blue;
     color: $white;
-    border-radius: $bd_radius;
+    border-radius: $bd_r;
     font-weight: bold;
     font-size: 1rem;
     cursor: pointer;

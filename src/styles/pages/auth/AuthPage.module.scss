@@ -19,7 +19,7 @@
     word-break: keep-all;
   }
   button {
-    color: white;
+    color: $white;
     width: clamp(6rem, 80vw, 30rem);
     border: none;
     position: relative;

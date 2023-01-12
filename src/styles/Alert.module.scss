@@ -16,7 +16,7 @@ $width: 300px;
   pointer-events: none;
 
   .Message {
-    border-radius: $bd_radius;
+    border-radius: $bd_r;
     text-align: center;
     font-size: 0.875rem;
     font-weight: 600;
@@ -25,7 +25,7 @@ $width: 300px;
     width: $width;
     height: 50px;
     cursor: pointer;
-    animation: Enter 600ms ease-in-out, 600ms Exit 2000ms ease-in-out forwards;
+    animation: Enter 600ms ease-in-out, 600ms Exit 20000ms ease-in-out forwards;
     pointer-events: all;
     opacity: 0.9;
     &.error {

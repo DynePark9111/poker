@@ -1,9 +1,7 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { lazy, useContext, Suspense } from "react";
 import { DarkmodeContext } from "./contexts/DarkmodeContext";
-import Alert from "./components/Alert";
 import Layout from "./components/layout/Layout";
-import AuthLayout from "./components/layout/AuthLayout";
 import HomePage from "./pages/HomePage";
 import MyPage from "./pages/MyPage";
 import SettingsPage from "./pages/SettingsPage";
@@ -12,16 +10,17 @@ import NotFoundPage from "./pages/NotFoundPage";
 import AuthPage from "./pages/auth/AuthPage";
 import LoginPage from "./pages/auth/LoginPage";
 import SignupPage from "./pages/auth/SignupPage";
-import Background from "./components/Background";
+import AuthLayout from "./components/layout/AuthLayout";
+import Global from "./components/layout/Global";
 const PokerPage = lazy(() => import("./pages/PokerPage"));
 
 export default function App() {
   const { isDark } = useContext(DarkmodeContext);
 
   return (
-    <div data-theme={isDark ? "dark" : "light"}>
-      <Suspense fallback={<Background />}>
-        <Alert />
+    <div className="App" data-theme={isDark ? "dark" : "light"}>
+      <Suspense fallback={<Global />}>
+        <Global />
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<HomePage />} />
@@ -29,7 +28,8 @@ export default function App() {
             <Route path="poker" element={<PokerPage />} />
             <Route path="settings" element={<SettingsPage />} />
             <Route path="shop" element={<ShopPage />} />
-            <Route path="*" element={<NotFoundPage />} />
+            <Route path="/404" element={<NotFoundPage />} />
+            <Route path="*" element={<Navigate replace to="/404" />} />
           </Route>
           <Route path="auth" element={<AuthLayout />}>
             <Route index element={<AuthPage />} />
