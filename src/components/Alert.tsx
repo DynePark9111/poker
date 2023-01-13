@@ -21,7 +21,7 @@ function Message({ message }: MessageProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       deleteAlert(message.id);
-    }, 6500);
+    }, 3500);
     return () => clearTimeout(timer);
   }, [message.id]);
 

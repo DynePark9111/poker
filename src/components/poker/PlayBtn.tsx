@@ -43,7 +43,6 @@ export default function PlayBtn({ onClickPlay }: PlayBtnProps) {
     } else {
       let sorted = multiHand.sort((a, b) => Number(a.rank) - Number(b.rank));
       setMultiHand(sorted);
-      addAlert("sorted", "success");
     }
   }
 
