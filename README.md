@@ -15,7 +15,7 @@
 
 ```bash
 git clone https://github.com/DynePark9111/poker.git
-yarn add
+yarn
 touch .env
 yarn dev
 
